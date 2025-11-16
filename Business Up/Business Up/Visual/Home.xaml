@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:Controls="clr-namespace:Business_Up.Controls"
+             xmlns:Visual="clr-namespace:Business_Up.Visual"
+             x:Class="Business_Up.Visual.Home"
+             BackgroundColor="WhiteSmoke">
+    <ContentPage.Content>
+        <RefreshView x:Name="vista">
+
+            <ScrollView>
+                <AbsoluteLayout VerticalOptions="FillAndExpand">
+                    <StackLayout
+            BackgroundColor="WhiteSmoke">
+                        <Grid
+                ColumnDefinitions="*, Auto"
+                RowDefinitions="Auto, Auto"
+                RowSpacing="0"
+                Margin="20, 10, 20, 5">
+                            <Label
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Text="¡Hola!"></Label>
+                            <Label
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    x:Name="tipoUsuario"
+                    Text="Usuario"></Label>
+                        </Grid>
+                        <Label
+                Text="Vista previa de clientes"
+                FontAttributes="Bold"
+                    FontSize="22"
+                Margin="10, 0, 0, 0"></Label>
+
+                        <StackLayout
+                        x:Name="one"
+                        xct:StateLayout.CurrentState="{Binding GetState}"
+                        HeightRequest="150">
+                            <xct:StateLayout.StateViews>
+                                <xct:StateView 
+                        StateKey="Loading"
+                        RepeatCount="1">
+                                    <xct:StateView.Template>
+                                        <DataTemplate>
+                                            <StackLayout
+                                        Orientation="Horizontal"
+                                        Spacing="0"
+                                        Margin="10,10,10,10">
+                                                <Visual:Carga></Visual:Carga>
+                                                <Visual:Carga></Visual:Carga>
+                                                <Visual:Carga></Visual:Carga>
+                                            </StackLayout>
+                                        </DataTemplate>
+                                    </xct:StateView.Template>
+                                </xct:StateView>
+                                <xct:StateView 
+                                StateKey="Error"
+                                VerticalOptions="FillAndExpand">
+                                    <Label Text="Error"></Label>
+                                </xct:StateView>
+                                <xct:StateView 
+                                StateKey="Empty"
+                                VerticalOptions="FillAndExpand">
+                                    <Label Text="Empty"></Label>
+                                </xct:StateView>
+                            </xct:StateLayout.StateViews>
+
+                            <CollectionView
+                            x:Name="ListaClientes"
+                            ItemsLayout="HorizontalList"
+                            ItemsSource="{Binding GetClientes}"
+                            SelectionMode="Single"
+                            SelectionChanged="ListaClientes_SelectionChanged"
+                                >
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+
+                                        <StackLayout>
+                                            <Frame
+                                            CornerRadius="20"
+                                            Margin="10,10"
+                                            HeightRequest="140"
+                                            Padding="0">
+                                                <Grid
+                                        RowDefinitions="auto, auto, auto"
+                                        ColumnDefinitions="Auto"
+                                        RowSpacing="5"
+                                        Margin="10, 10">
+
+                                                    <Image Grid.Row="0" Grid.ColumnSpan="2" Source="icono_cliente.png" Aspect="AspectFit"/>
+                                                    <Label Grid.Row="1" Text="{Binding Nombre}" FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="Center"/>
+                                                    <Label Grid.Row="3" Text="{Binding Correos[0]}" FontSize="16" HorizontalTextAlignment="Center"/>
+                                                </Grid>
+                                            </Frame>
+                                        </StackLayout>
+
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+
+                        </StackLayout>
+                        <Label
+                Text="Vista previa de productos y servicios"
+                            FontSize="16"
+                Margin="10, 0, 0, 0"></Label>
+                        <StackLayout
+                x:Name="two"
+                xct:StateLayout.CurrentState="{Binding GetState}"
+                HeightRequest="90"
+                Margin="0, 0, 0, 0">
+                            <xct:StateLayout.StateViews>
+                                <xct:StateView 
+                        StateKey="Loading"
+                        RepeatCount="1">
+                                    <xct:StateView.Template>
+                                        <DataTemplate>
+                                            <StackLayout
+                                                Orientation="Horizontal"
+                                                Spacing="0"
+                                                Margin="10,10,10,10">
+
+                                                <Visual:CargaInventario></Visual:CargaInventario>
+                                                <Visual:CargaInventario></Visual:CargaInventario>
+                                                <Visual:CargaInventario></Visual:CargaInventario>
+                                                <Visual:CargaInventario></Visual:CargaInventario>
+
+                                            </StackLayout>
+                                        </DataTemplate>
+                                    </xct:StateView.Template>
+                                </xct:StateView>
+                                <xct:StateView 
+                        StateKey="Error"
+                        VerticalOptions="FillAndExpand">
+                                    <Label Text="Error"></Label>
+                                </xct:StateView>
+                                <xct:StateView 
+                        StateKey="Empty"
+                        VerticalOptions="FillAndExpand">
+                                    <Label Text="Empty"></Label>
+                                </xct:StateView>
+                            </xct:StateLayout.StateViews>
+
+                            <CollectionView
+                        ItemsLayout="HorizontalList"
+                    ItemsSource="{Binding GetProductos}">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+
+                                        <StackLayout>
+                                            <Frame
+                                    CornerRadius="20"
+                                    Margin="10,10"
+                                    HeightRequest="80"
+                                    Padding="0">
+                                                <Grid
+                                        RowDefinitions="Auto, Auto"
+                                        ColumnDefinitions="Auto, Auto"
+                                        RowSpacing="0"
+                                        Margin="10, 10">
+
+                                                    <Image Grid.RowSpan="2" Grid.Column="0" Source="icono_item.png" Aspect="AspectFit" VerticalOptions="Center"/>
+
+                                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Nombre}" FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="Center"/>
+
+                                                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding DatoPrecio}" FontSize="16" HorizontalTextAlignment="Start"/>
+
+                                                </Grid>
+                                            </Frame>
+                                        </StackLayout>
+
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+
+                        </StackLayout>
+                        <Label
+                        Text="Cuentas por cobrar"
+                        FontSize="16"
+                        Margin="10, 0, 0, 0"></Label>
+                        <StackLayout
+                        x:Name="three"
+                        HeightRequest="240"
+                        xct:StateLayout.CurrentState="{Binding GetState}">
+                            <xct:StateLayout.StateViews>
+                                <xct:StateView 
+                                    StateKey="Loading"
+                                    RepeatCount="3">
+                                    <xct:StateView.Template>
+                                        <DataTemplate>
+                                            <Visual:Carga></Visual:Carga>
+                                        </DataTemplate>
+                                    </xct:StateView.Template>
+                                </xct:StateView>
+                                <xct:StateView 
+                        StateKey="Error"
+                        VerticalOptions="FillAndExpand">
+                                    <Label Text="Error"></Label>
+                                </xct:StateView>
+                                <xct:StateView 
+                                StateKey="Empty"
+                                VerticalOptions="FillAndExpand">
+                                    <Label Text="Empty"></Label>
+                                </xct:StateView>
+                            </xct:StateLayout.StateViews>
+
+                            <ListView
+                                VerticalScrollBarVisibility="Never"
+                                IsPullToRefreshEnabled="False"
+                                Grid.Row="1" Grid.Column="0"
+                                x:Name="ViewVentas"
+                                ItemsSource="{Binding GetVentas}" 
+                                HasUnevenRows="True" 
+                                SelectionMode="None" 
+                                SeparatorVisibility="None">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+
+                                            <StackLayout>
+                                                <Frame
+                                                CornerRadius="20"
+                                                Margin="10"
+                                                Padding="0">
+                                                    <Grid
+                                                    RowDefinitions="Auto, Auto, Auto"
+                                                    ColumnDefinitions="*"
+                                                    RowSpacing="0"
+                                                    Margin="10, 10">
+
+                                                        <StackLayout Grid.Row="0" Grid.Column="0">
+                                                            <Label Text="{Binding Cliente.Nombre}" FontSize="25" TextColor="Black" FontAttributes="Bold" Margin="10,0,0,0"/>
+                                                        </StackLayout>
+
+                                                        <StackLayout Grid.Row="1" Grid.Column="0">
+                                                            <Label Text="{Binding DatoTotal}" FontSize="18" TextColor="Green" FontAttributes="None" Margin="10,0,0,0"/>
+                                                        </StackLayout>
+
+                                                        <StackLayout Grid.Row="2" Grid.Column="0">
+                                                            <Label Text="{Binding DatoFecha}" FontSize="18" TextColor="DarkGray" FontAttributes="None" Margin="10,0,10,0"/>
+                                                        </StackLayout>
+                                                        <Button x:Name="VerFactura" Grid.RowSpan="3" Text="Ver factura" HorizontalOptions="End" VerticalOptions="Center" CommandParameter="{Binding .}" CornerRadius="15" Clicked="VerFactura_Clicked"/>
+                                                    </Grid>
+                                                </Frame>
+                                            </StackLayout>
+
+                                            </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+
+                    </StackLayout>
+                    <Button Text="Facturar venta" x:Name="Vender" CornerRadius="15" AbsoluteLayout.LayoutBounds=" .95, .02, 150, 40" TextTransform="None" AbsoluteLayout.LayoutFlags="PositionProportional" Clicked="Vender_Clicked"/>
+
+                    <Button x:Name="BotonAdmin" IsVisible="false" Text="Administracion de cuentas" TextTransform="None" TextColor="White" CornerRadius="15" AbsoluteLayout.LayoutBounds=" .5, .98, 250, 60" AbsoluteLayout.LayoutFlags="PositionProportional" BackgroundColor="Red" HorizontalOptions="FillAndExpand" VerticalOptions="End" Margin="10" Clicked="BotonAdmin_Clicked">
+                    </Button>
+
+                </AbsoluteLayout>
+
+            </ScrollView>
+
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>

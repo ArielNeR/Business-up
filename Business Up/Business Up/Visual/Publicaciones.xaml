@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Business_Up.Visual.Publicaciones">
+    <StackLayout BackgroundColor="Black">
+        <StackLayout BackgroundColor="Black">
+            <Grid ColumnDefinitions="*,*,48" RowDefinitions="48">
+                <Label Grid.ColumnSpan="3" HorizontalOptions="Center" VerticalOptions="Center" TextColor="White" FontAttributes="Bold" FontSize="20" Text="Publicaciones destacadas"/>
+            </Grid>
+        </StackLayout>
+        <RefreshView x:Name="refreshView">
+            <CarouselView x:Name="ListaPublicaciones" ItemsSource="{Binding GetPublicaciones}" Loop="False">
+                <CarouselView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"
+                                       SnapPointsAlignment="Center"
+                                       SnapPointsType="MandatorySingle"/>
+                </CarouselView.ItemsLayout>
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+
+                        <AbsoluteLayout VerticalOptions="Fill" BackgroundColor="Black">
+
+                            <ImageButton x:Name="CorreoContacto" Margin="5,0,0,0" CornerRadius="15" CommandParameter="{Binding Usuario.Correo}" Source="publicar_icono.png" BackgroundColor="White" HeightRequest="35" WidthRequest="35" Clicked="CorreoContacto_Clicked"/>
+                            <Image x:Name="MainImage" Aspect="AspectFit" Source="{Binding ImagenVisual}" Margin="5" AbsoluteLayout.LayoutBounds=" .5, .5" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+
+
+                            <StackLayout AbsoluteLayout.LayoutBounds=" 0, .98" AbsoluteLayout.LayoutFlags="PositionProportional" Padding="12,6">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BorderColor="#ccc" CornerRadius="30" WidthRequest="40" HeightRequest="40" Padding="5">
+                                        <Image x:Name="ProfilePicture" Source="{Binding Usuario.Foto}"/>
+                                    </Frame>
+                                    <StackLayout Orientation="Vertical" Margin="12,0,0,0">
+                                        <Label x:Name="UserName" FontAttributes="Bold" TextColor="White" Text="{Binding Usuario.Nombre}" />
+                                        <Label x:Name="ImageTimeStamp" FontSize="12" TextColor="WhiteSmoke" Text="{Binding DuracionVisual}"/>
+                                    </StackLayout>
+                                </StackLayout>
+                                <Label x:Name="ImageTitle" FontAttributes="Bold" Margin="0,12,0,0" TextColor="White" Text="{Binding Titulo}"/>
+                                <Label x:Name="ImageDescription" LineBreakMode="WordWrap" MaxLines="3" TextColor="White" Text="{Binding Descripcion}"/>
+                            </StackLayout>
+
+                        </AbsoluteLayout>
+
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+        </RefreshView>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:datos="clr-namespace:Business_Up.Contenido"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="Business_Up.Visual.Venta">
+    <StackLayout BackgroundColor="LightBlue">
+        <Grid VerticalOptions="FillAndExpand" BackgroundColor="NavajoWhite" RowSpacing="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <Frame
+                    Grid.Row="0"
+                    Padding="0"
+                    CornerRadius="35"
+                    HeightRequest="80"
+                    BorderColor="Gray"
+                    Margin="5,-30,5,0">
+                <Grid VerticalOptions="End" Margin="0,0,0,6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="45" />
+                    </Grid.RowDefinitions>
+                    <Button x:Name="botonAtras" WidthRequest="40" CornerRadius="15" TextTransform="None" TextColor="Black" Padding="0" HorizontalOptions="Start" Margin="20,4,0,0" Clicked="botonAtras_Clicked"/>
+                    <Label Grid.Column="0" Text="Venta" FontSize="30" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="End" Margin="0,0,10,0"/>
+                    <Frame CornerRadius="35" Margin="0,5,40,0" HorizontalOptions="FillAndExpand" HasShadow="False" Padding="0" Grid.Row="0" Grid.Column="1" BackgroundColor="Gray">
+                        <Grid Grid.Column="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Label Grid.Column="0" Text="Fecha:" FontSize="18" FontAttributes="Bold" Margin="20,0,0,0" VerticalOptions="Center" TextColor="White"/>
+                            <DatePicker x:Name="datePicker"
+                                            Grid.Column="1"
+                                            Date="{Binding SelectedDate, Mode=TwoWay}"
+                                            Format="d"
+                                            xct:CornerRadiusEffect.CornerRadius="15"
+                                            TextColor="Red"
+                                            TextTransform="None"
+                                            FontSize="12"
+                                            BackgroundColor="Yellow"
+                                            HorizontalOptions="Center"
+                                            Margin="0,2,20,2"/>
+                        </Grid>
+                    </Frame>
+                </Grid>
+            </Frame>
+
+            <StackLayout Grid.Row="1">
+                <Grid VerticalOptions="FillAndExpand" RowSpacing="0" ColumnDefinitions="*" RowDefinitions="auto,*">
+                    <Frame Grid.Row="0" CornerRadius="20" Margin="10,5,10,0">
+                        <Grid RowSpacing="5" ColumnDefinitions=".3*,*" RowDefinitions="*,*">
+                            <Label Grid.Column="0" Grid.Row="0" Text="Cliente:" FontAttributes="Bold" FontSize="20"/>
+                            <Button Grid.Column="1" Grid.Row="0" CornerRadius="20" Text="Cliente" x:Name="ElegirCliente" BackgroundColor="Gray" VerticalOptions="Center" Margin="0,-12,0,0" Clicked="ElegirCliente_Clicked"/>
+                            <Grid Grid.Row="1" Grid.ColumnSpan="2" RowSpacing="0" ColumnDefinitions="auto,*,60" RowDefinitions="auto">
+                                <Button Grid.Column="2" CornerRadius="25" Text="+" TextColor="White" x:Name="AgregarItem" WidthRequest="50" BackgroundColor="MediumVioletRed" HorizontalOptions="End" Clicked="AgregarItem_Clicked"/>
+                                <Button Grid.Column="1" CornerRadius="20" Text="Efectivo" x:Name="TipoPago" BackgroundColor="Gray" HorizontalOptions="Center" Clicked="TipoPago_Clicked"/>
+                                <Grid RowSpacing="0" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Center">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Column="0" Text="Deuda" FontSize="18" FontAttributes="Bold" Margin="20,0,0,0" HorizontalOptions="Start" VerticalOptions="Center" TextColor="Red"/>
+                                    <Switch Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Start" Margin="0,2,2,2" x:Name="DeudaPendiente" Toggled="DeudaPendiente_Toggled"/>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Frame>
+
+                    <ListView
+                                VerticalScrollBarVisibility="Never"
+                                Grid.Row="1" Grid.Column="0"
+                                x:Name="ViewCarrito"
+                                ItemsSource="{Binding GetProductos}" 
+                                HasUnevenRows="True" 
+                                SelectionMode="None" 
+                                SeparatorVisibility="None"
+                                Margin="10">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+
+                                    <StackLayout>
+                                        <Frame
+                                                CornerRadius="20"
+                                                Margin="10,5,10,5"
+                                                Padding="0">
+                                            <Grid
+                                                    RowDefinitions="Auto, Auto, Auto"
+                                                    ColumnDefinitions="*, 40"
+                                                    RowSpacing="0"
+                                                    Margin="10, 10">
+
+                                                <Grid Grid.RowSpan="3" Grid.Column="1" RowSpacing="0" ColumnDefinitions="auto" RowDefinitions="*,*">
+                                                    <Button Grid.Row="0" Text="x" x:Name="EliminarItem" CommandParameter="{Binding Item.Nombre}" TextTransform="Lowercase" VerticalOptions="Center" CornerRadius="25" Padding="-10" HeightRequest="30" WidthRequest="40" BackgroundColor="PaleVioletRed" Clicked="EliminarItem_Clicked"/>
+                                                    <Button Grid.Row="1" Text="--" x:Name="ModificarCantidadItem" CommandParameter="{Binding Item.Nombre}" TextTransform="Lowercase" VerticalOptions="Center" CornerRadius="25" Padding="-10" HeightRequest="30" WidthRequest="40" BackgroundColor="LightCoral" Clicked="ModificarCantidadItem_Clicked"/>
+                                                </Grid>
+                                                
+                                                <StackLayout Grid.Row="0" Grid.Column="0">
+                                                    <Label Text="{Binding Item.Nombre}" FontSize="25" TextColor="Black" FontAttributes="Bold" Margin="10,0,0,0"/>
+                                                </StackLayout>
+
+                                                <StackLayout Grid.Row="1" Grid.Column="0">
+                                                    <Label Text="{Binding Item.Tipo}" FontSize="18" TextColor="DarkGray" FontAttributes="None" Margin="10,0,0,0"/>
+                                                </StackLayout>
+
+                                                <StackLayout Grid.Row="2" Grid.Column="0">
+                                                    <Grid
+                                                            RowDefinitions="auto"
+                                                            ColumnDefinitions="auto,auto">
+
+                                                        <Label Grid.Column="0" Text="{Binding Item.DatoPrecio}" FontSize="16" TextColor="Blue" Margin="10,0,0,0"/>
+
+                                                        <Label Grid.Column="1" Text="{Binding DatoCantidad}" FontSize="16" TextColor="DarkGreen" Margin="10,0,10,0"/>
+
+                                                    </Grid>
+                                                </StackLayout>
+
+                                            </Grid>
+                                        </Frame>
+                                    </StackLayout>
+
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+
+                    </ListView>
+
+                </Grid>
+            </StackLayout>
+            
+            <Frame
+                    Grid.Row="2"
+                    Padding="0"
+                    CornerRadius="35"
+                    HeightRequest="90"
+                    BorderColor="Gray"
+                    Margin="5,0,5,-30">
+                <Grid VerticalOptions="Start" Margin="0,5,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="45" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Column="0" HorizontalOptions="FillAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Label Grid.Column="0" Text="Total:" FontSize="20" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Start" Margin="20,0,0,0"/>
+                        <Label Grid.Column="1" x:Name="Total" Text="0" FontSize="20" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Start" Margin="5,0,0,0"/>
+                    </Grid>
+                    <Button Grid.Column="1" Text="  Facturar  " x:Name="Facturar" HorizontalOptions="End" CornerRadius="15" Margin="0,0,20,0" Clicked="Facturar_Clicked"/>
+                </Grid>
+            </Frame>
+
+        </Grid>
+
+
+
+
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:Visual="clr-namespace:Business_Up.Visual"
+             xmlns:Controls="clr-namespace:Business_Up.Controls"
+             x:Class="Business_Up.Visual.Profile"
+             BackgroundColor="WhiteSmoke">
+    <ScrollView>
+        <StackLayout>
+            <StackLayout>
+                
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <StackLayout BackgroundColor="Black"
+                         Grid.ColumnSpan="3"
+                         Grid.Row="0">
+                        <Grid ColumnDefinitions="auto,*,*" RowDefinitions="*,*,*" VerticalOptions="FillAndExpand">
+                            <Image Grid.ColumnSpan="3" Grid.RowSpan="3" Source="fondoPerfil.png" HeightRequest="100" WidthRequest="100" HorizontalOptions="End"/>
+                            <Label Grid.Column="1" Grid.Row="2" x:Name="usuariotxt" FontSize="25" VerticalOptions="End" FontAttributes="Bold" TextColor="White" Margin="0,-12,0,0"/>
+                            <StackLayout Grid.RowSpan="2" Margin="20,20,0,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BorderColor="#ccc" CornerRadius="60" Padding="0" HasShadow="True">
+                                        <Image x:Name="ProfilePicture" WidthRequest="110" HeightRequest="110" BackgroundColor="Transparent"/>
+                                    </Frame>
+                                </StackLayout>
+                            </StackLayout>
+                        </Grid>
+                    </StackLayout>
+                    <StackLayout
+                    Grid.Column="1"
+                     Grid.ColumnSpan="2"
+                     Grid.Row="1">
+                        <Label x:Name="correotxt" TextColor="Gray" FontSize="Default" HorizontalOptions="Start"/>
+                    </StackLayout>
+                    <ImageButton 
+                        x:Name="btnEditarPerfil"
+                        Grid.Column="2"
+                        HeightRequest="30"
+                        WidthRequest="30"
+                        HorizontalOptions="End"
+                        Source="editarPerfil.png"
+                        BackgroundColor="Transparent"
+                        Margin="0,0,10,0"
+                        Grid.Row="1"
+                        Clicked="btnEditarPerfil_Clicked"/>
+                </Grid>
+            </StackLayout>
+
+            <Frame BorderColor="LightBlue" Margin="20,20,20,0" CornerRadius="25" Padding="0" BackgroundColor="AliceBlue">
+                <Grid ColumnDefinitions="*,*,*" RowDefinitions="*,*,*,*" RowSpacing="0">
+                    <StackLayout Grid.ColumnSpan="3" Grid.Row="0" BackgroundColor="Blue">
+                        <Label Text="Inventario" TextColor="White" HorizontalOptions="Start" FontSize="20" FontAttributes="Bold" Margin="40,10,0,0"/>
+                    </StackLayout>
+                    <Button Grid.ColumnSpan="3" Grid.Row="1" x:Name="produtos_servicios" Text="Productos y servicios" TextTransform="None" TextColor="Blue" BackgroundColor="Transparent" BorderColor="LightBlue" BorderWidth="2" Clicked="produtos_servicios_Clicked"/>
+                    <Button Grid.ColumnSpan="3" Grid.Row="2" x:Name="clientes" Text="Clientes" TextTransform="None" TextColor="Blue" BackgroundColor="Transparent" Clicked="clientes_Clicked"/>
+                    <Button Grid.ColumnSpan="3" Grid.Row="3" x:Name="ventas" Text="Ventas" TextTransform="None" TextColor="Blue" BackgroundColor="Transparent" BorderColor="LightBlue" BorderWidth="2" Clicked="ventas_Clicked"/>
+
+                </Grid>
+            </Frame>
+            
+            <Frame BorderColor="LightBlue" Margin="20,20,20,0" CornerRadius="25" Padding="0" BackgroundColor="AliceBlue">
+                <Grid ColumnDefinitions="*,*,*" RowDefinitions="*,*,*" RowSpacing="0">
+                    <StackLayout Grid.ColumnSpan="3" Grid.Row="0" BackgroundColor="Blue">
+                        <Label Text="Publicaciones" TextColor="White" HorizontalOptions="Start" FontSize="20" FontAttributes="Bold" Margin="40,10,0,0"/>
+                    </StackLayout>
+                    <Button Grid.ColumnSpan="3" Grid.Row="1" x:Name="mispublicaciones" Text="Mis publicaciones" TextTransform="None" TextColor="Blue" BackgroundColor="Transparent" BorderColor="LightBlue" BorderWidth="2" Clicked="mispublicaciones_Clicked"/>
+                    <Button Grid.ColumnSpan="3" Grid.Row="2" x:Name="publicar" Text="Publicar" TextTransform="None" TextColor="Blue" BackgroundColor="Transparent" Clicked="publicar_Clicked"/>
+                </Grid>
+            </Frame>
+
+            <Frame BorderColor="LightGreen" Margin="20,20,20,0" CornerRadius="25" Padding="0" BackgroundColor="AliceBlue">
+                <Grid ColumnDefinitions="*,*,*" RowDefinitions="*,auto" RowSpacing="0">
+                    <StackLayout Grid.ColumnSpan="3" Grid.Row="0" BackgroundColor="Green">
+                        <Label Text="Contáctanos" TextColor="White" HorizontalOptions="Start" FontSize="20" FontAttributes="Bold" Margin="40,10,0,0"/>
+                    </StackLayout>
+                    <Button Grid.ColumnSpan="3" Grid.Row="1" x:Name="contactanos" Text="Apoyanos con tu opinion o sugerencia" TextTransform="None" 
+                            TextColor="Green" BackgroundColor="White" BorderColor="LightBlue" BorderWidth="2" CornerRadius="15" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="50" Margin="10,0,0,0" Clicked="contactanos_Clicked"/>
+                    <Image Grid.ColumnSpan="3" Grid.Row="1" Source="imagen_contactenos.png" HeightRequest="100" HorizontalOptions="End"/>
+                </Grid>
+            </Frame>
+
+            <Button CornerRadius="20"
+                BackgroundColor="Red"
+                WidthRequest="300"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="EndAndExpand"
+                Text="Cerrar sesión" 
+                TextTransform="None" 
+                FontAttributes="Bold" 
+                FontSize="20" 
+                TextColor="White"
+                x:Name="CerrarSesion"
+                Clicked="CerrarSesion_Clicked"
+                Margin="0,20,0,20"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

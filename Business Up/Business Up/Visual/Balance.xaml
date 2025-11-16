@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Business_Up.Visual.Balance"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:forms = "clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             Title="Balance">
+    <ContentPage.Content>
+        <RefreshView x:Name="vista">
+        <ScrollView BackgroundColor="Black">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
+                    <Frame
+                    Grid.Row="0"
+                    Padding="0"
+                    CornerRadius="35"
+                    HeightRequest="80"
+                    BorderColor="Gray"
+                    BackgroundColor="White"
+                    Margin="5,-30,5,0">
+                        <Grid VerticalOptions="End" Margin="0,0,0,6">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="45" />
+                            </Grid.RowDefinitions>
+
+                            <Frame CornerRadius="35" Margin="20,5,0,0" HorizontalOptions="CenterAndExpand" HasShadow="False" Padding="0" Grid.Row="0" Grid.Column="0" BackgroundColor="Gray">
+
+                                <Grid Grid.Column="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="auto" />
+
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <Label Grid.Column="0" Text="Fecha:" FontSize="18" FontAttributes="Bold" Margin="20,0,0,0" HorizontalOptions="Start" VerticalOptions="Center" TextColor="White"/>
+                                    <DatePicker x:Name="Fechabtn"
+                                            Grid.Column="1"
+                                            Date="{Binding SelectedDate, Mode=TwoWay}"
+                                            Format="d"
+                                            xct:CornerRadiusEffect.CornerRadius="15"
+                                            TextColor="Red"
+                                            TextTransform="None"
+                                            FontSize="12"
+                                            BackgroundColor="Yellow"
+                                            HorizontalOptions="Center"
+                                            DateSelected="Fechabtn_DateSelected"
+                                            Margin="0,2,20,2"/>
+
+                                </Grid>
+
+                            </Frame>
+
+                            <Button IsVisible="false" CornerRadius="35" Grid.Column="1" x:Name="tipoBalance" HeightRequest="0" FontSize="14" FontAttributes="Bold" TextColor="Red" BackgroundColor="Yellow" HorizontalOptions="End" Margin="0,5,20,0" Clicked="TipoBalance_Clicked"/>
+
+
+                        </Grid>
+
+                    </Frame>
+
+                    <StackLayout Grid.Row="1">
+                        <Frame
+                        HasShadow="False"
+                        CornerRadius="15"
+                        Margin="20,5,20,10"
+                        Padding="0">
+
+                            <Grid
+                            RowSpacing="0"
+                            RowDefinitions="auto , auto"
+                            ColumnDefinitions="*">
+
+                                <StackLayout BackgroundColor="Orchid" Grid.Row="0">
+                                    <Label HorizontalOptions="Center" VerticalOptions="Center" Text="Cuentas por cobrar" FontAttributes="Bold" FontSize="18" TextColor="White"/>
+                                </StackLayout>
+
+                                <StackLayout BackgroundColor="WhiteSmoke" Grid.Row="1">
+                                    <Grid
+                                    RowSpacing="0"
+                                    RowDefinitions="45"
+                                    ColumnDefinitions="auto,*,*">
+
+                                        <Label Grid.Column="0" VerticalOptions="Center" Text="Valor total:" FontAttributes="Bold" FontSize="15" TextColor="Black" Margin="20,0,0,0"/>
+                                        <Label Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" x:Name="CuentasPendientes" Text="" FontAttributes="Bold" FontSize="15" TextColor="Black"/>
+                                        <Button Grid.Column="2" x:Name="CuentasPorCobrar" CornerRadius="25" HorizontalOptions="End" VerticalOptions="Center" Text=">>" WidthRequest="50" FontAttributes="Bold" FontSize="12" TextColor="Black" Margin="5" Clicked="CuentasPorCobrar_Clicked"/>
+
+                                    </Grid>
+
+                                </StackLayout>
+
+                            </Grid>
+
+                        </Frame>
+
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="2">
+                        <Frame
+                        HasShadow="False"
+                        CornerRadius="15"
+                        Margin="20,5,20,10"
+                        Padding="0">
+
+                            <Grid
+                            RowSpacing="0"
+                            RowDefinitions="auto , auto"
+                            ColumnDefinitions="*">
+
+                                <StackLayout BackgroundColor="Orchid" Grid.Row="0">
+                                    <Label HorizontalOptions="Center" VerticalOptions="Center" Text="Ventas realizadas" FontAttributes="Bold" FontSize="18" TextColor="White"/>
+                                    <StackLayout Grid.Row="5" Orientation="Vertical">
+                                        <forms:ChartView x:Name="GraficoVentas" HeightRequest="180" forms:IgnorePixelScaling="False"/>
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <StackLayout BackgroundColor="WhiteSmoke" Grid.Row="1">
+                                    <Grid
+                                    RowSpacing="0"
+                                    RowDefinitions="45"
+                                    ColumnDefinitions="auto,*,*">
+
+                                        <Label Grid.Column="0" VerticalOptions="Center" Text="Número de ventas:" FontAttributes="Bold" FontSize="15" TextColor="Black" Margin="20,0,0,0"/>
+                                        <Label Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" x:Name="NumeroVentas" Text="" FontAttributes="Bold" FontSize="15" TextColor="Black"/>
+                                        <Button Grid.Column="2" x:Name="Ventas" CornerRadius="25" HorizontalOptions="End" VerticalOptions="Center" Text=">>" WidthRequest="50" FontAttributes="Bold" FontSize="12" TextColor="Black" Margin="5" Clicked="Ventas_Clicked"/>
+
+                                    </Grid>
+
+                                </StackLayout>
+
+                            </Grid>
+
+                        </Frame>
+
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="3">
+                        <Frame
+                        HasShadow="False"
+                        CornerRadius="15"
+                        Margin="20,5,20,10"
+                        Padding="0">
+
+                            <Grid
+                            RowSpacing="0"
+                            RowDefinitions="auto , auto"
+                            ColumnDefinitions="*">
+
+                                <StackLayout BackgroundColor="Orchid" Grid.Row="0">
+                                    <Label HorizontalOptions="Center" VerticalOptions="Center" Text="Inventario" FontAttributes="Bold" FontSize="18" TextColor="White"/>
+                                </StackLayout>
+
+                                <StackLayout BackgroundColor="WhiteSmoke" Grid.Row="1">
+                                    <Grid
+                                    RowSpacing="0"
+                                    RowDefinitions="45"
+                                    ColumnDefinitions="auto,*,*">
+
+                                        <Label Grid.Column="0" VerticalOptions="Center" Text="Valor total del inventario:" FontAttributes="Bold" FontSize="15" TextColor="Black" Margin="20,0,0,0"/>
+                                        <Label Grid.Column="1" HorizontalOptions="Center" x:Name="totalInventario" VerticalOptions="Center" Text="" FontAttributes="Bold" FontSize="15" TextColor="Black"/>
+                                        <Button Grid.Column="2" x:Name="Inventario" CornerRadius="25" HorizontalOptions="End" VerticalOptions="Center" Text=">>" WidthRequest="50" FontAttributes="Bold" FontSize="12" TextColor="Black" Margin="5" Clicked="Inventario_Clicked"/>
+
+                                    </Grid>
+
+                                </StackLayout>
+
+                            </Grid>
+
+                        </Frame>
+
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="4">
+                        <Frame
+                        HasShadow="False"
+                        CornerRadius="15"
+                        Margin="20,5,20,10"
+                        Padding="0">
+
+                            <Grid
+                            RowSpacing="0"
+                            RowDefinitions="auto , auto"
+                            ColumnDefinitions="*">
+
+                                <StackLayout BackgroundColor="Orchid" Grid.Row="0">
+                                    <Label HorizontalOptions="Center" VerticalOptions="Center" Text="Ganancia diaria" FontAttributes="Bold" FontSize="18" TextColor="White"/>
+                                    <StackLayout Grid.Row="5" Orientation="Vertical">
+                                        <forms:ChartView x:Name="GraficoGanancias" HeightRequest="180" forms:IgnorePixelScaling="False"/>
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <StackLayout BackgroundColor="WhiteSmoke" Grid.Row="1">
+                                    <Grid
+                                    RowSpacing="0"
+                                    RowDefinitions="45"
+                                    ColumnDefinitions="auto,*,*">
+
+                                        <Label Grid.Column="0" VerticalOptions="Center" Text="Total:" FontAttributes="Bold" FontSize="15" TextColor="Black" Margin="20,0,0,0"/>
+                                        <Label Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" x:Name="Ganancias" Text="" FontAttributes="Bold" FontSize="15" TextColor="Black"/>
+
+                                    </Grid>
+
+                                </StackLayout>
+
+                            </Grid>
+
+                        </Frame>
+
+                    </StackLayout>
+
+
+
+                </Grid>
+            </ScrollView>
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>

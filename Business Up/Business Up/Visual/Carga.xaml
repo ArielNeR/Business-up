@@ -1,0 +1,55 @@
+﻿<StackLayout
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Business_Up.Controls"
+    xmlns:templates="clr-namespace:Business_Up.Visual"
+    x:Class="Business_Up.Visual.Carga"
+    Padding="0, 0, 0, 5">
+    <Frame
+        CornerRadius="20"
+        Margin="5, 0"
+        Padding="0"
+        HeightRequest="145">
+        <Grid
+        RowDefinitions="Auto, Auto, Auto, Auto"
+            ColumnDefinitions="Auto, Auto"
+            RowSpacing="5"
+            Margin="15, 10">
+
+            <controls:SkeletonView
+                Grid.Row="0"
+                Grid.Column="0"
+                HeightRequest="40"
+                WidthRequest="40"
+                CornerRadius="10"
+                BackgroundColor="WhiteSmoke"
+                HorizontalOptions="Start">
+            </controls:SkeletonView>
+            <controls:SkeletonView
+                Grid.Row="1"
+                Grid.Column="0"
+                HeightRequest="15"
+                CornerRadius="15"
+                BackgroundColor="Gray"
+                HorizontalOptions="Start"></controls:SkeletonView>
+            
+            <controls:SkeletonView
+                Grid.Row="2"
+                Grid.Column="0"
+                HeightRequest="15"
+                CornerRadius="15"
+                BackgroundColor="WhiteSmoke"
+                HorizontalOptions="Start"></controls:SkeletonView>
+            <controls:SkeletonView
+                Grid.Row="3"
+                Grid.Column="0"
+                HeightRequest="10"
+                CornerRadius="10"
+                BackgroundColor="Gray"
+                HorizontalOptions="Start"></controls:SkeletonView>
+
+            
+        </Grid>
+    </Frame>
+    
+</StackLayout>

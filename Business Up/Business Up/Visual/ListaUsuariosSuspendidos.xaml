@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Business_Up.Visual.ListaUsuariosSuspendidos">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="AliceBlue">
+            <Grid VerticalOptions="FillAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <StackLayout Grid.Row="1">
+                    <Frame
+                        HasShadow="False"
+                        CornerRadius="25"
+                        Margin="20,10,20,20"
+                        BorderColor="Black"
+                        Padding="0">
+
+                        <Grid
+                            RowDefinitions="auto , *"
+                            ColumnDefinitions="*">
+
+                            <StackLayout BackgroundColor="Black" Grid.Row="0">
+                                <Label HorizontalOptions="Center" VerticalOptions="Center" Text="Cuentas suspendidas" FontAttributes="Bold" FontSize="25" TextColor="White"/>
+                            </StackLayout>
+
+                            <ListView
+                                VerticalScrollBarVisibility="Never"
+                                IsPullToRefreshEnabled="True"
+                                Grid.Row="1" Grid.Column="0"
+                                x:Name="ListaCuentas"
+                                HasUnevenRows="True" 
+                                SelectionMode="None" 
+                                SeparatorVisibility="None">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+
+                                            <StackLayout>
+                                                <Frame
+                                                CornerRadius="20"
+                                                Margin="10,5,10,5"
+                                                Padding="0">
+                                                    <Grid
+                                                    RowDefinitions="Auto, Auto"
+                                                    ColumnDefinitions="*,40"
+                                                    RowSpacing="2"
+                                                    Margin="10, 10">
+
+                                                        <Grid Grid.RowSpan="3" Grid.Column="1" RowSpacing="0" ColumnDefinitions="auto" RowDefinitions="*,*">
+                                                            <Button Grid.Row="0" Text="x" x:Name="EliminarItem" CommandParameter="{Binding }" TextTransform="Lowercase" VerticalOptions="Center" CornerRadius="25" Padding="-10" HeightRequest="30" WidthRequest="40" BackgroundColor="PaleVioletRed" Clicked="EliminarItem_Clicked"/>
+                                                        </Grid>
+
+                                                        <StackLayout Grid.Row="0" Grid.Column="0">
+                                                            <Label Text="{Binding }" FontSize="25" TextColor="Black" FontAttributes="Bold" Margin="10,10,0,0"/>
+                                                        </StackLayout>
+                                                    </Grid>
+                                                </Frame>
+                                            </StackLayout>
+
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+
+                            </ListView>
+
+                        </Grid>
+
+                    </Frame>
+
+                </StackLayout>
+
+            </Grid>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

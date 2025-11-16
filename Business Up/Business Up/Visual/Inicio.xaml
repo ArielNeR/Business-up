@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Business_Up.Visual.Inicio"
+             NavigationPage.HasNavigationBar="False">
+    <Grid BackgroundColor="#F7F7F7">
+        <StackLayout VerticalOptions="CenterAndExpand" >
+            <Image
+                Source="AppPhoto.png"
+                Margin="5" x:Name="Logo"/>
+            <Label 
+                TextColor="Black" 
+                Text="BUSINESS UP"
+                HorizontalOptions="CenterAndExpand"
+                FontSize="20"
+                FontAttributes="Bold"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>

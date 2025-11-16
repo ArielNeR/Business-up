@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Business_Up.App">
+    <Application.Resources>
+        <!-- Colors -->
+        <Color x:Key="WindowBackgroundColor">#1F1D2B</Color>
+        <Color x:Key="TabBarBackgroundColor">#252836</Color>
+        <Color x:Key="TabBarTitleColor">#6FCF97</Color>
+        <Color x:Key="TabBarUnselectedColor">#828282</Color>
+        <!-- ... rest of the resource dictionary ... -->
+    </Application.Resources>
+</Application>

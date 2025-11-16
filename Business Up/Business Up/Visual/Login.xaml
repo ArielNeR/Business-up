@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Business_Up.Visual.Login"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:EntryCustom="clr-namespace:Business_Up.Controls">
+    <ContentPage.Content>
+        <Grid RowSpacing="0"
+              x:Name="gridApp">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+
+            </Grid.RowDefinitions>
+
+
+            <Image Source="fonfoLogin.jpeg" Aspect="AspectFill"/>
+
+            <Frame Grid.Row="0"
+                   Background="#C3F7A2"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   WidthRequest="250"
+                   HeightRequest="500"
+                   CornerRadius="40">
+                <AbsoluteLayout>
+                    <Image Source="loginLogo.png"
+                        AbsoluteLayout.LayoutBounds="0.5,0.05,150,150"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"/>
+
+                    <Frame
+                    Background="#C8F9F8"
+                    BorderColor="Gray"
+                    Padding="0"
+                    CornerRadius="10"
+                    AbsoluteLayout.LayoutBounds="0.5,0.38"
+                    WidthRequest="200"
+                    AbsoluteLayout.LayoutFlags="PositionProportional">
+
+                        <EntryCustom:MyEntry HorizontalOptions="Center"
+                        ClearButtonVisibility="WhileEditing"
+                        IsSpellCheckEnabled="false"
+                        IsTextPredictionEnabled="True"
+                        VerticalOptions="Center"
+                        WidthRequest="200"
+                        TextColor="Black"
+                        HorizontalTextAlignment="Center"
+                        
+                        Placeholder="Usuario"
+                        PlaceholderColor="Black"
+                        x:Name="usuariotext"/>
+                        
+                        <!--<Entry
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        WidthRequest="130"
+                        TextColor="Black"
+                        HorizontalTextAlignment="Center"
+                        
+                        Placeholder="Usuario"
+                        PlaceholderColor="Black"
+                        x:Name="usuariotext"/>-->
+
+                    </Frame>
+
+
+
+                    <Frame
+                    Background="#C8F9F8"
+                    BorderColor="Gray"
+                    Padding="0"
+                    CornerRadius="10"
+                    AbsoluteLayout.LayoutBounds="0.5,0.5"
+                    WidthRequest="200"
+                    AbsoluteLayout.LayoutFlags="PositionProportional">
+
+                        <EntryCustom:MyEntry
+                        ClearButtonVisibility="WhileEditing"
+                        IsSpellCheckEnabled="false"
+                        IsTextPredictionEnabled="false"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        WidthRequest="200"
+                        TextColor="Black"
+                        HorizontalTextAlignment="Center"
+                        Placeholder="Contraseña"
+                        PlaceholderColor="Black"
+                        x:Name="contratxt"/>
+
+                    </Frame>
+
+                    <Button
+                        BackgroundColor="White"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        WidthRequest="150"
+                        AbsoluteLayout.LayoutBounds="0.5,0.64"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"
+                        CornerRadius="20"
+                        Text="Ingresar" 
+                        x:Name="ingreso"
+                        TextColor="Blue"
+                        Clicked="ingreso_Clicked"/>
+
+                    <Button
+                        BackgroundColor="Transparent"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        WidthRequest="150"
+                        AbsoluteLayout.LayoutBounds="0.5,0.74"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"
+                        CornerRadius="20"
+                        Text="Registrarse" 
+                        x:Name="registro"
+                        TextColor="Blue"
+                        Clicked="registro_Clicked"/>
+
+
+                    <Label
+                   Text="INICIO DE SESIÓN"
+                   TextColor="Gray"
+                   AbsoluteLayout.LayoutBounds="0.5,0.96,220,40"
+                   AbsoluteLayout.LayoutFlags="PositionProportional"
+                   FontSize="27"
+                   FontAttributes="Bold"/>
+
+
+                    <ActivityIndicator
+                        x:Name="progreso"
+                        AbsoluteLayout.LayoutBounds="0.5,0.87,50,80"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"
+                        Color="Blue" 
+                        IsRunning="False"></ActivityIndicator>
+
+                </AbsoluteLayout>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,26 @@
+﻿<xct:Popup
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    x:Class="Business_Up.Visual.TipoPago"
+    Color="Transparent">
+    <Frame CornerRadius="30" Margin="40,100,100,40">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Button x:Name="Efectivo" Text="Efectivo" Grid.Row="0" HorizontalOptions="Center" BackgroundColor="Transparent" Clicked="Efectivo_Clicked"/>
+            <Button x:Name="Tarjeta" Text="Tarjeta" Grid.Row="1" HorizontalOptions="Center" BackgroundColor="Transparent" Clicked="Tarjeta_Clicked"/>
+            <Button x:Name="Transaccion" Text="Transaccion" Grid.Row="2" HorizontalOptions="Center" BackgroundColor="Transparent" Clicked="Transaccion_Clicked"/>
+            <Button x:Name="Otro" Text="Otro" Grid.Row="3" HorizontalOptions="Center" BackgroundColor="Transparent" Clicked="Otro_Clicked"/>
+
+        </Grid>
+    </Frame>
+</xct:Popup>

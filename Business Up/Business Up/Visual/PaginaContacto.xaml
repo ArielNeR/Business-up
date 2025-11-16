@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Business_Up.Visual.PaginaContacto">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center">
+            <Label Text="Deja tu comentario o sugerencia aquí:" />
+            <Editor x:Name="txtComment" HeightRequest="100" />
+            <Button x:Name="BotonEnviar" Text="Enviar" HorizontalOptions="Center" Clicked="BotonEnviar_Clicked" />
+            <Frame x:Name="Mensaje" WidthRequest="300" HeightRequest="100" CornerRadius="5" Padding="0" HorizontalOptions="Start">
+                <Grid Padding="0" ColumnDefinitions="*" RowDefinitions="40,*">
+                    <StackLayout Grid.Row="0" BackgroundColor="Blue">
+                        <Label Grid.Row="0" Text="Sugerecia recibida!" HorizontalOptions="Center" VerticalOptions="Center" TextColor="White" FontSize="24"/>
+                    </StackLayout>
+                    <Label Text="Muchas gracias por ayudarnos y colaborar con nosotros!" Grid.Row="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" TextColor="Black"/>
+                </Grid>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

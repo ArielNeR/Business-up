@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Business_Up.Visual.EditarInformacionPerfil">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button x:Name="btnAtras" Text="Atrás"  HeightRequest="50" VerticalOptions="Start" HorizontalOptions="Start" CornerRadius="15" Margin="20,20,0,0" Clicked="btnAtras_Clicked"/>
+
+            <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+                <StackLayout.Padding>
+                    <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0" Android="0,0,0,0" WinPhone="0,0,0,0" />
+                </StackLayout.Padding>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Frame CornerRadius="75" HasShadow="True">
+                        <StackLayout>
+                            <Image x:Name="imgPerfil"
+                           WidthRequest="150"
+                           HeightRequest="150"
+                           Aspect="AspectFill"
+                           HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="CenterAndExpand"/>
+                            <Button x:Name="btnEditarFoto"
+                            Text="Cambiar"
+                            BackgroundColor="LightCyan"
+                            TextColor="Black"
+                            TextTransform="None"
+                            HorizontalOptions="Center"
+                            BorderColor="LightBlue"
+                            BorderWidth="1"
+                            CornerRadius="15"
+                            VerticalOptions="End"
+                            Clicked="btnEditarFoto_Clicked"/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Label Text="Nombre:"
+                   HorizontalOptions="StartAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   FontAttributes="Bold"/>
+                    <Entry x:Name="txtNombre"
+                   WidthRequest="250"
+                   HorizontalOptions="EndAndExpand"
+                   VerticalOptions="CenterAndExpand"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Label Text="Correo Electrónico:"
+                   HorizontalOptions="StartAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   FontAttributes="Bold"/>
+                    <Entry x:Name="txtCorreo"
+                   WidthRequest="250"
+                   HorizontalOptions="EndAndExpand"
+                   VerticalOptions="CenterAndExpand"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <!--<Label Text="Contraseña:"
+                   HorizontalOptions="StartAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   FontAttributes="Bold"/>
+                    <Entry x:Name="txtContraseña"
+                   IsPassword="True"
+                   HorizontalOptions="EndAndExpand"
+                   VerticalOptions="CenterAndExpand"/>-->
+                    <Button x:Name="btnGuardar" Text=" Guardar cambios" TextTransform="None" HorizontalOptions="CenterAndExpand" Clicked="btnGuardar_Clicked"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Padding="0,20,0,0">
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
