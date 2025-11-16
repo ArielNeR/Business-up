@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<StackLayout
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Business_Up.Controls"
+    x:Class="Business_Up.Visual.Template"
+    Spacing="5"
+    Margin="0, 2">
+    <controls:SkeletonView
+        HeightRequest="10"
+        WidthRequest="50"
+        CornerRadius="10"
+        HorizontalOptions="Start"
+        VerticalOptions="Center"
+        BackgroundColor="White"></controls:SkeletonView>
+    <controls:SkeletonView
+        HeightRequest="25"
+        WidthRequest="75"
+        CornerRadius="25"
+        HorizontalOptions="Start"
+        VerticalOptions="Center"
+        BackgroundColor="Gray"></controls:SkeletonView>
+</StackLayout>
