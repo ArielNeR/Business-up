@@ -1,4 +1,4 @@
-Ôªøusing Business_Up.Contenido;
+using Business_Up.Contenido;
 using Business_Up.Controls;
 using System;
 using System.Collections.Generic;
@@ -28,9 +28,9 @@ namespace Business_Up.Visual
         }
 
         /**
-        M√©todo que actualiza las publicaciones en la aplicaci√≥n.
-        Si no se est√° actualizando ya, se llama al m√©todo para obtener las publicaciones de la API en un hilo de ejecuci√≥n en segundo plano.
-        Despu√©s de la obtenci√≥n de las publicaciones, se actualiza el binding context de la lista de publicaciones con el nuevo contenido.
+        MÈtodo que actualiza las publicaciones en la aplicaciÛn.
+        Si no se est· actualizando ya, se llama al mÈtodo para obtener las publicaciones de la API en un hilo de ejecuciÛn en segundo plano.
+        DespuÈs de la obtenciÛn de las publicaciones, se actualiza el binding context de la lista de publicaciones con el nuevo contenido.
         @return void
         */
         public void ActualizarPublicaciones()

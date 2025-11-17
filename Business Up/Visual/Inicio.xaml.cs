@@ -1,4 +1,4 @@
-﻿using Business_Up.Data;
+using Business_Up.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +20,7 @@ namespace Business_Up.Visual
         }
 
         /// <summary>
-        /// Este método realiza una subproceso de animacion mientras importa los datos guardados o en lugar de no tener se procede al apartado de login.
+        /// Este m�todo realiza una subproceso de animacion mientras importa los datos guardados o en lugar de no tener se procede al apartado de login.
         /// </summary>
         private void animacion()
         {

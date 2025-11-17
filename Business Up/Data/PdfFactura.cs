@@ -1,4 +1,4 @@
-﻿
+
 namespace Business_Up.Data
 {
     public interface PdfFactura

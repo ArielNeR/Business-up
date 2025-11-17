@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,7 +35,7 @@ namespace Business_Up.Visual
         private async void EliminarItem_Clicked(object sender, EventArgs e)
         {
             var editBoxButton = sender as Button;
-            var result = await DisplayAlert("Eliminar publicacion", "¿Estas segur@?", "Si, estoy segur@", "Cancelar");
+            var result = await DisplayAlert("Eliminar publicacion", "�Estas segur@?", "Si, estoy segur@", "Cancelar");
             if (editBoxButton != null && result)
             {
                 var boxID = editBoxButton.CommandParameter as Entidades.Publicacion;

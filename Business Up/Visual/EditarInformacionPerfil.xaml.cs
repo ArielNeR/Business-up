@@ -1,4 +1,4 @@
-﻿using Business_Up.Controls;
+using Business_Up.Controls;
 using System;
 using System.Collections.Generic;
 using System.IO;

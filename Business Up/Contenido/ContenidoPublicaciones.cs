@@ -1,4 +1,4 @@
-Ôªøusing Business_Up.Data;
+using Business_Up.Data;
 using Business_Up.Entidades;
 using System;
 using System.Collections.Generic;
@@ -85,9 +85,9 @@ namespace Business_Up.Contenido
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
-        /// M√©todo que invoca el evento PropertyChanged. Se llama autom√°ticamente cuando una propiedad ha cambiado.
+        /// MÈtodo que invoca el evento PropertyChanged. Se llama autom·ticamente cuando una propiedad ha cambiado.
         /// </summary>
-        /// <param name="propertyname">El nombre de la propiedad que ha cambiado. Este valor se establece autom√°ticamente a trav√©s del atributo CallerMemberName.</param>
+        /// <param name="propertyname">El nombre de la propiedad que ha cambiado. Este valor se establece autom·ticamente a travÈs del atributo CallerMemberName.</param>
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyname = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));

@@ -1,4 +1,4 @@
-﻿using Business_Up.Visual;
+using Business_Up.Visual;
 using System;
 using System.Collections.Generic;
 using System.Linq;

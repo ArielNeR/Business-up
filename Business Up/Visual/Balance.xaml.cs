@@ -1,4 +1,4 @@
-ï»¿using Microcharts;
+using Microcharts;
 using SkiaSharp;
 using System;
 using System.Collections.Generic;
@@ -32,9 +32,9 @@ namespace Business_Up.Visual
         }
 
         /**
-        MÃ©todo que se encarga de iniciar la vista del dashboard. Este mÃ©todo obtiene los datos necesarios para
-        llenar la informaciÃ³n en la vista y crear los grÃ¡ficos correspondientes.
-        @return No retorna ningÃºn valor.
+        Método que se encarga de iniciar la vista del dashboard. Este método obtiene los datos necesarios para
+        llenar la información en la vista y crear los gráficos correspondientes.
+        @return No retorna ningún valor.
         */
         private void Iniciar()
         {

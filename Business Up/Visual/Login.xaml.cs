@@ -1,4 +1,4 @@
-ï»¿using Business_Up.Data;
+using Business_Up.Data;
 using System;
 using System.Threading.Tasks;
 
@@ -49,19 +49,19 @@ namespace Business_Up.Visual
                             switch (conteo)
                             {
                                 case 0:
-                                    _ = DisplayAlert("Datos Incorrectos", "contraseÃ±a incorrecta", "Aceptar");
+                                    _ = DisplayAlert("Datos Incorrectos", "contraseña incorrecta", "Aceptar");
                                     conteo++;
                                     break;
                                 case 1:
-                                    _ = DisplayAlert("Datos Incorrectos", "contraseÃ±a incorrecta\nLe queda dos intentos", "Aceptar");
+                                    _ = DisplayAlert("Datos Incorrectos", "contraseña incorrecta\nLe queda dos intentos", "Aceptar");
                                     conteo++;
                                     break;
                                 case 2:
-                                    _ = DisplayAlert("Datos Incorrectos", "contraseÃ±a incorrecta\nLe queda un intento", "Aceptar");
+                                    _ = DisplayAlert("Datos Incorrectos", "contraseña incorrecta\nLe queda un intento", "Aceptar");
                                     conteo++;
                                     break;
                                 case 3:
-                                    _ = DisplayAlert("Datos Incorrectos", "contraseÃ±a incorrecta\nCuenta bloqueada temporalmente", "Aceptar");
+                                    _ = DisplayAlert("Datos Incorrectos", "contraseña incorrecta\nCuenta bloqueada temporalmente", "Aceptar");
                                     _ = TData.SuspenderCuenta(usuariotext.Text);
                                     conteo = 0;
                                     break;

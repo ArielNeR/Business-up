@@ -1,4 +1,4 @@
-﻿using Business_Up.Controls;
+using Business_Up.Controls;
 using Business_Up.Entidades;
 using System;
 using System.IO;

@@ -1,4 +1,4 @@
-锘縰sing System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +26,7 @@ namespace Business_Up.Visual
         }
 
         /// <summary>
-        /// M茅todo que se encarga de mostrar los datos de un cliente en la interfaz gr谩fica de usuario para permitir su edici贸n.
+        /// M閠odo que se encarga de mostrar los datos de un cliente en la interfaz gr醘ica de usuario para permitir su edici髇.
         /// </summary>
         /// <param name="cliente">Objeto de la clase Cliente con los datos del cliente a editar.</param>
         private void Editar(Entidades.Cliente cliente)
@@ -42,7 +42,7 @@ namespace Business_Up.Visual
         }
 
         /// <summary>
-        /// M茅todo que retorna a la interfaz visual principal.
+        /// M閠odo que retorna a la interfaz visual principal.
         /// </summary>
         private void BotonAtras_Clicked(object sender, EventArgs e)
         {
@@ -50,13 +50,13 @@ namespace Business_Up.Visual
         }
 
         /**
-        M茅todo para agregar o modificar un cliente en la lista de clientes.
-        Se validan los datos ingresados por el usuario y se procede a modificar o agregar un cliente seg煤n corresponda.
-        Si el estado de modificaci贸n es verdadero, se modifican los datos del cliente que se ha pasado como par谩metro.
-        Si el estado de modificaci贸n es falso, se crea un nuevo objeto Cliente y se ingresa en la lista de clientes.
-        Se valida que se haya ingresado un correo electr贸nico v谩lido y que se hayan rellenado todos los campos.
-        Si alguna validaci贸n no es satisfactoria, se muestra una notificaci贸n con el mensaje correspondiente.
-        Despu茅s de modificar o agregar el cliente, se guardan los datos locales y se guarda la informaci贸n en la base de datos.
+        M閠odo para agregar o modificar un cliente en la lista de clientes.
+        Se validan los datos ingresados por el usuario y se procede a modificar o agregar un cliente seg鷑 corresponda.
+        Si el estado de modificaci髇 es verdadero, se modifican los datos del cliente que se ha pasado como par醡etro.
+        Si el estado de modificaci髇 es falso, se crea un nuevo objeto Cliente y se ingresa en la lista de clientes.
+        Se valida que se haya ingresado un correo electr髇ico v醠ido y que se hayan rellenado todos los campos.
+        Si alguna validaci髇 no es satisfactoria, se muestra una notificaci髇 con el mensaje correspondiente.
+        Despu閟 de modificar o agregar el cliente, se guardan los datos locales y se guarda la informaci髇 en la base de datos.
         */
         private async void Agregar_Clicked(object sender, EventArgs e)
         {
@@ -117,9 +117,9 @@ namespace Business_Up.Visual
 
         /**
         Muestra un mensaje en pantalla durante un tiempo determinado.
-        Despu茅s de pasado el tiempo, mueve el mensaje fuera de la pantalla y habilita
-        el bot贸n de Agregar.
-        Tambi茅n utiliza un hilo para mostrar el mensaje en segundo plano.
+        Despu閟 de pasado el tiempo, mueve el mensaje fuera de la pantalla y habilita
+        el bot髇 de Agregar.
+        Tambi閚 utiliza un hilo para mostrar el mensaje en segundo plano.
         */
         private async void mostrarMensaje()
         {

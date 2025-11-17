@@ -1,4 +1,4 @@
-﻿using Business_Up.Data;
+using Business_Up.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,7 +44,7 @@ namespace Business_Up.Visual
 
         private async void ViewVentas_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var result = await DisplayAlert("Establecer esta venta como concluida/pagada", "¿Estas segur@?", "Si, estoy segur@", "Cancelar");
+            var result = await DisplayAlert("Establecer esta venta como concluida/pagada", "�Estas segur@?", "Si, estoy segur@", "Cancelar");
             if (result)
             {
                 var item = e.SelectedItem as Entidades.Venta;

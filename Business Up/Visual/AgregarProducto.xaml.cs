@@ -1,4 +1,4 @@
-锘縰sing System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,7 +28,7 @@ namespace Business_Up.Visual
         }
 
         /// <summary>
-        /// M茅todo que se encarga de mostrar los datos de un cliente en la interfaz gr谩fica de usuario para permitir su edici贸n.
+        /// M閠odo que se encarga de mostrar los datos de un cliente en la interfaz gr醘ica de usuario para permitir su edici髇.
         /// </summary>
         /// <param name="inventario">Objeto de la clase Inventario con los datos del inventario a editar.</param>
         private void Editar(Entidades.Inventario inventario)
@@ -50,11 +50,11 @@ namespace Business_Up.Visual
         }
 
         /**
-        M茅todo que se ejecuta cuando se hace clic en el bot贸n "Agregar" de la p谩gina de edici贸n de un producto en el inventario.
-        Si la validaci贸n de los campos es exitosa, se realiza la modificaci贸n o ingreso del producto en el inventario y se guarda la informaci贸n local y en la nube.
+        M閠odo que se ejecuta cuando se hace clic en el bot髇 "Agregar" de la p醙ina de edici髇 de un producto en el inventario.
+        Si la validaci髇 de los campos es exitosa, se realiza la modificaci髇 o ingreso del producto en el inventario y se guarda la informaci髇 local y en la nube.
         En caso contrario, se muestra un mensaje de error al usuario.
-        @param sender Objeto que env铆a el evento.
-        @param e Evento que se dispara al hacer clic en el bot贸n "Agregar".
+        @param sender Objeto que env韆 el evento.
+        @param e Evento que se dispara al hacer clic en el bot髇 "Agregar".
         */
         private async void Agregar_Clicked(object sender, EventArgs e)
         {
@@ -125,9 +125,9 @@ namespace Business_Up.Visual
 
         /**
         Muestra un mensaje en pantalla durante un tiempo determinado.
-        Despu茅s de pasado el tiempo, mueve el mensaje fuera de la pantalla y habilita
-        el bot贸n de Agregar.
-        Tambi茅n utiliza un hilo para mostrar el mensaje en segundo plano.
+        Despu閟 de pasado el tiempo, mueve el mensaje fuera de la pantalla y habilita
+        el bot髇 de Agregar.
+        Tambi閚 utiliza un hilo para mostrar el mensaje en segundo plano.
         */
         private async void mostrarMensaje()
         {

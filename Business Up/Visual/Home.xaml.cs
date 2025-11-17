@@ -1,4 +1,4 @@
-﻿using Business_Up.Contenido;
+using Business_Up.Contenido;
 using Business_Up.Controls;
 using Business_Up.Data;
 using System;

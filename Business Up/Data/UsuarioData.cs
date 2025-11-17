@@ -1,4 +1,4 @@
-﻿using Business_Up.Entidades;
+using Business_Up.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Text;

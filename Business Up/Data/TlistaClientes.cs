@@ -1,4 +1,4 @@
-ï»¿using Business_Up.Entidades;
+using Business_Up.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +13,11 @@ namespace Business_Up.Data
         public static List<Cliente> ListaClientes { get => listaClientes; set => listaClientes = value; }
 
         /**
-        Este mÃ©todo recibe un objeto Cliente y verifica si ya existe un Cliente con el mismo nombre en la lista de clientes.
+        Este método recibe un objeto Cliente y verifica si ya existe un Cliente con el mismo nombre en la lista de clientes.
         Si no existe, se agrega el objeto Cliente a la lista y devuelve true. Si ya existe un Cliente con el mismo nombre,
         devuelve false.
         @param cl El objeto Cliente que se desea ingresar a la lista de clientes
-        @return Devuelve true si se ingresÃ³ el objeto Cliente exitosamente, false si ya existe un Cliente con el mismo nombre en la lista.
+        @return Devuelve true si se ingresó el objeto Cliente exitosamente, false si ya existe un Cliente con el mismo nombre en la lista.
         */
         public static bool Ingresar(Cliente cl)
         {

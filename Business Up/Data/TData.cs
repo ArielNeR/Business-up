@@ -1,4 +1,4 @@
-Ôªøusing Business_Up.Controls;
+using Business_Up.Controls;
 using Business_Up.Entidades;
 using System;
 using System.Collections.Generic;
@@ -17,15 +17,15 @@ namespace Business_Up.Data
         public static bool actualizando = false;
 
         /// <summary>
-        /// M√©todo est√°tico y as√≠ncrono que permite guardar datos en la nube.
-        /// Los datos son serializados utilizando BinaryFormatter y subidos al servidor a trav√©s de la clase TDataBox.
+        /// MÈtodo est·tico y asÌncrono que permite guardar datos en la nube.
+        /// Los datos son serializados utilizando BinaryFormatter y subidos al servidor a travÈs de la clase TDataBox.
         /// </summary>
-        /// <exception cref="Exception">Lanza una excepci√≥n en caso de error al guardar los datos ya sea por coexion o tipo de datos.</exception>
+        /// <exception cref="Exception">Lanza una excepciÛn en caso de error al guardar los datos ya sea por coexion o tipo de datos.</exception>
         public static async Task GuardarDatos()
         {
             try
             {
-                BinaryFormatter BF = new BinaryFormatter();
+                //BinaryFormatter BF = new BinaryFormatter();
                 List<object> listas = new List<object>
                 {
                     TlistaClientes.ListaClientes,
@@ -37,8 +37,8 @@ namespace Business_Up.Data
                 };
                 using (MemoryStream ms = new MemoryStream())
                 {
-                    BF.Serialize(ms, listas);
-                    await TDataBox.UploadAsync(ms,UsuarioData.UsuarioActual.Nombre,0);
+                    //BF.Serialize(ms, listas);
+                    //await TDataBox.UploadAsync(ms,UsuarioData.UsuarioActual.Nombre,0);
                     ms.Close();
                 }
             }
@@ -50,21 +50,21 @@ namespace Business_Up.Data
         }
 
         /// <summary>
-        /// M√©todo est√°tico y as√≠ncrono que permite importar datos de la nube.
+        /// MÈtodo est·tico y asÌncrono que permite importar datos de la nube.
         /// Los datos se descargan utilizando la clase TDataBox y se deserializan con BinaryFormatter.
         /// </summary>
         /// <returns>
-        /// Devuelve un entero que indica si la importaci√≥n de datos se realiz√≥ con √©xito:
-        /// 0 = √©xito, 1 = error.
+        /// Devuelve un entero que indica si la importaciÛn de datos se realizÛ con Èxito:
+        /// 0 = Èxito, 1 = error.
         /// </returns>
-        /// <exception cref="Exception">Lanza una excepci√≥n en caso de error al importar los datos.</exception>
+        /// <exception cref="Exception">Lanza una excepciÛn en caso de error al importar los datos.</exception>
         public static async Task<int> ImportarDatos()
         {
             try
             {
-                BinaryFormatter BF = new BinaryFormatter();
-                var data = await TDataBox.DownloadAsync(UsuarioData.UsuarioActual.Nombre);
-                List<object> DatosCargados = (List<object>)BF.Deserialize(data);
+                //BinaryFormatter BF = new BinaryFormatter();
+                //var data = await TDataBox.DownloadAsync(UsuarioData.UsuarioActual.Nombre);
+                List<object> DatosCargados = null;// (List<object>)BF.Deserialize(data);
                 TlistaClientes.ListaClientes = (List<Cliente>)DatosCargados.ElementAt(0);
                 TlistaInventario.Inventario = (List<Inventario>)DatosCargados.ElementAt(1);
                 TlistaInventario.ListaProductos = (List<Producto>)DatosCargados.ElementAt(2);
@@ -81,12 +81,12 @@ namespace Business_Up.Data
         }
 
         /// <summary>
-        /// Agrega una publicaci√≥n a una lista de publicaciones y la sube al servidor mediante la clase TDataBox.
-        /// Si la publicaci√≥n ya existe, se muestra un mensaje indicando el problema. En caso de que se ingrese un objeto nulo,
-        /// se sube la lista de publicaciones sin agregar nada. El m√©todo maneja excepciones y muestra mensajes de error en caso de que ocurran.
+        /// Agrega una publicaciÛn a una lista de publicaciones y la sube al servidor mediante la clase TDataBox.
+        /// Si la publicaciÛn ya existe, se muestra un mensaje indicando el problema. En caso de que se ingrese un objeto nulo,
+        /// se sube la lista de publicaciones sin agregar nada. El mÈtodo maneja excepciones y muestra mensajes de error en caso de que ocurran.
         /// </summary>
         /// <param name="pb">Objeto de tipo Publicacion que se desea agregar a la lista de publicaciones</param>
-        /// <returns>Un objeto Task que representa la tarea asincr√≥nica realizada por el m√©todo. Devuelve 0 si la operaci√≥n se realiz√≥ correctamente y 1 en caso contrario.</returns>
+        /// <returns>Un objeto Task que representa la tarea asincrÛnica realizada por el mÈtodo. Devuelve 0 si la operaciÛn se realizÛ correctamente y 1 en caso contrario.</returns>
 
         public static async Task Publicar(Publicacion pb)
         {
@@ -94,27 +94,27 @@ namespace Business_Up.Data
             {
                 if(!(pb is null))
                 {
-                    BinaryFormatter BF = new BinaryFormatter();
+                    //BinaryFormatter BF = new BinaryFormatter();
                     var resul = TListaPublicaciones.Publicar(pb);
                     if (resul)
                     {
                         using (MemoryStream ms = new MemoryStream())
                         {
-                            BF.Serialize(ms, TListaPublicaciones.ListaPublicaciones);
-                            await TDataBox.UploadAsyncPublicacion(ms);
+                            //BF.Serialize(ms, TListaPublicaciones.ListaPublicaciones);
+                            //await TDataBox.UploadAsyncPublicacion(ms);
                             ms.Close();
                         }
                     }
                     else
-                        DependencyService.Get<IMensaje>().ShowMessage("Publicaci√≥n existente\nIngrese otro t√≠tulo", 0);
+                        DependencyService.Get<IMensaje>().ShowMessage("PublicaciÛn existente\nIngrese otro tÌtulo", 0);
                 }
                 else
                 {
-                    BinaryFormatter BF = new BinaryFormatter();
+                    //BinaryFormatter BF = new BinaryFormatter();
                     using (MemoryStream ms = new MemoryStream())
                     {
-                        BF.Serialize(ms, TListaPublicaciones.ListaPublicaciones);
-                        await TDataBox.UploadAsyncPublicacion(ms);
+                        //BF.Serialize(ms, TListaPublicaciones.ListaPublicaciones);
+                        //await TDataBox.UploadAsyncPublicacion(ms);
                         ms.Close();
                     }
                 }
@@ -129,21 +129,21 @@ namespace Business_Up.Data
 
         /// <summary>
         /// Agrega un comentario a una sugerencia y lo sube al servidor mediante la clase TDataBox.
-        /// Se utiliza la clase PdfFactura para generar el comentario en formato PDF. El m√©todo maneja excepciones
+        /// Se utiliza la clase PdfFactura para generar el comentario en formato PDF. El mÈtodo maneja excepciones
         /// y muestra mensajes de error en caso de que ocurran.
         /// </summary>
         /// <param name="comentario">Cadena de texto que representa el comentario a agregar</param>
-        /// <returns>Un objeto Task que representa la tarea asincr√≥nica realizada por el m√©todo.</returns>
+        /// <returns>Un objeto Task que representa la tarea asincrÛnica realizada por el mÈtodo.</returns>
 
         public static async Task AgregarComentarioSugerencia(string comentario)
         {
             try
             {
-                BinaryFormatter BF = new BinaryFormatter();
+                //BinaryFormatter BF = new BinaryFormatter();
                 var DC = DependencyService.Get<PdfFactura>().GenerarComentario(comentario);
                 using (MemoryStream ms = new MemoryStream(DC))
                 {
-                    await TDataBox.UploadAsyncComentario(ms);
+                    //await TDataBox.UploadAsyncComentario(ms);
                     ms.Close();
                 }
             }
@@ -155,14 +155,14 @@ namespace Business_Up.Data
         }
 
         /// <summary>
-        /// M√©todo asincr√≥nico que obtiene las publicaciones almacenadas en el servidor y las agrega a la lista de publicaciones de la aplicaci√≥n.
+        /// MÈtodo asincrÛnico que obtiene las publicaciones almacenadas en el servidor y las agrega a la lista de publicaciones de la aplicaciÛn.
         /// </summary>
-        /// <returns>0 si se complet√≥ la obtenci√≥n de las publicaciones correctamente, 1 si hubo alg√∫n error en la conexi√≥n con el servidor.</returns>
+        /// <returns>0 si se completÛ la obtenciÛn de las publicaciones correctamente, 1 si hubo alg˙n error en la conexiÛn con el servidor.</returns>
         public static async Task<int> ObtenerPublicaciones()
         {
             try
             {
-                BinaryFormatter BF = new BinaryFormatter();
+                /*BinaryFormatter BF = new BinaryFormatter();
                 var data = await TDataBox.DownloadAsyncPublicacion();
                 foreach (var item in data)
                 {
@@ -178,7 +178,7 @@ namespace Business_Up.Data
                     {
                         TListaPublicaciones.ListaPublicaciones = new List<Publicacion>();
                     }
-                }
+                }*/
                 return 0;
 
             }
@@ -190,15 +190,15 @@ namespace Business_Up.Data
         }
 
         /// <summary>
-        /// M√©todo que realiza el registro de un usuario y sube la informaci√≥n necesaria a un servicio de almacenamiento en la nube.
+        /// MÈtodo que realiza el registro de un usuario y sube la informaciÛn necesaria a un servicio de almacenamiento en la nube.
         /// </summary>
         /// <param name="user">Objeto de tipo Usuario con los datos del usuario a registrar.</param>
-        /// <returns>Un string con un mensaje indicando el √©xito o el error del registro.</returns>
+        /// <returns>Un string con un mensaje indicando el Èxito o el error del registro.</returns>
         public static async Task<string> Registro(Usuario user)
         {
             try
             {
-                BinaryFormatter BF = new BinaryFormatter();
+                //BinaryFormatter BF = new BinaryFormatter();
                 string resul = "";
                 List<object> listas = new List<object>
                 {
@@ -211,8 +211,8 @@ namespace Business_Up.Data
                 };
                 using (MemoryStream ms = new MemoryStream())
                 {
-                    BF.Serialize(ms, listas);
-                    resul = await TDataBox.UploadAsync(ms, user.Nombre, 1);
+                    //BF.Serialize(ms, listas);
+                    //resul = await TDataBox.UploadAsync(ms, user.Nombre, 1);
                     ms.Close();
                 }
                 return resul;
@@ -225,14 +225,14 @@ namespace Business_Up.Data
         }
 
         /// <summary>
-        /// Guarda los datos locales de la aplicaci√≥n en un archivo binario.
+        /// Guarda los datos locales de la aplicaciÛn en un archivo binario.
         /// Se guardan las listas de clientes, inventario, productos, servicios, ventas y el usuario actual.
         /// </summary>
         public static void GuardarDatosLocal()
         {
             try
             {
-                BinaryFormatter BF = new BinaryFormatter();
+                //BinaryFormatter BF = new BinaryFormatter();
                 Console.WriteLine(UsuarioData.UsuarioActual.Nombre);
                 List<object> listas = new List<object>()
                 {
@@ -248,7 +248,7 @@ namespace Business_Up.Data
                     File.Delete(ruta);
                 using (FileStream fileStream = new FileStream(ruta, FileMode.OpenOrCreate))
                 {
-                    BF.Serialize(fileStream, listas);
+                    //BF.Serialize(fileStream, listas);
                     fileStream.Close();
                 }
             }
@@ -260,12 +260,12 @@ namespace Business_Up.Data
         }
 
         /**<summary>
-         M√©todo para borrar los datos guardados localmente en el dispositivo.
+         MÈtodo para borrar los datos guardados localmente en el dispositivo.
         </summary>
         <remarks>
         Busca el archivo "dataComplex.save" en la carpeta personal del dispositivo y lo borra si existe.
         </remarks>
-        <exception cref="Exception">Lanza una excepci√≥n si ocurre un error al borrar el archivo.</exception>
+        <exception cref="Exception">Lanza una excepciÛn si ocurre un error al borrar el archivo.</exception>
         */
         public static void BorrarDatos()
         {
@@ -283,14 +283,14 @@ namespace Business_Up.Data
 
         /// <summary>
         /// Importa los datos almacenados localmente en formato binario.
-        /// Si se encuentran datos almacenados, los carga en las listas de la aplicaci√≥n.
-        /// Si no se encuentran datos almacenados, devuelve un c√≥digo de error 1.
-        /// Si ocurre un error durante la operaci√≥n, devuelve un c√≥digo de error 2 y muestra un mensaje de error.
+        /// Si se encuentran datos almacenados, los carga en las listas de la aplicaciÛn.
+        /// Si no se encuentran datos almacenados, devuelve un cÛdigo de error 1.
+        /// Si ocurre un error durante la operaciÛn, devuelve un cÛdigo de error 2 y muestra un mensaje de error.
         /// </summary>
         /// <returns>
-        /// C√≥digo de error 0 si se han importado los datos correctamente.
-        /// C√≥digo de error 1 si no se han encontrado datos almacenados.
-        /// C√≥digo de error 2 si se ha producido un error durante la operaci√≥n.
+        /// CÛdigo de error 0 si se han importado los datos correctamente.
+        /// CÛdigo de error 1 si no se han encontrado datos almacenados.
+        /// CÛdigo de error 2 si se ha producido un error durante la operaciÛn.
         /// </returns>
         public static int ImportarDatosLocal()
         {
@@ -299,9 +299,9 @@ namespace Business_Up.Data
                 string ruta = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "/dataComplex.save";
                 if (File.Exists(ruta))
                 {
-                    BinaryFormatter BF = new BinaryFormatter();
+                    //BinaryFormatter BF = new BinaryFormatter();
                     FileStream Archivo = File.Open(ruta, FileMode.Open);
-                    List<object> DatosCargados = (List<object>)BF.Deserialize(Archivo);
+                    List<object> DatosCargados = null;//(List<object>)BF.Deserialize(Archivo);
                     Archivo.Close();
                     TlistaClientes.ListaClientes = (List<Cliente>)DatosCargados.ElementAt(0);
                     TlistaInventario.Inventario = (List<Inventario>)DatosCargados.ElementAt(1);
@@ -332,19 +332,19 @@ namespace Business_Up.Data
         <param name="NombreCuenta">El nombre de la cuenta que se desea verificar.</param>
         <returns>Devuelve un valor booleano que indica si la cuenta se encuentra suspendida o no.</returns>
         <remarks>
-        Este m√©todo utiliza una lista de cuentas suspendidas proporcionada por TDataBox.CuentasSuspendidas() para determinar si la cuenta dada est√° suspendida.
+        Este mÈtodo utiliza una lista de cuentas suspendidas proporcionada por TDataBox.CuentasSuspendidas() para determinar si la cuenta dada est· suspendida.
         </remarks>
         */
         public static async Task<bool> EsCuentaSuspendida(string NombreCuenta)
         {
             bool resul = false;
-            foreach (var item in await TDataBox.CuentasSuspendidas())
+            /*foreach (var item in await TDataBox.CuentasSuspendidas())
             {
                 if (item.Name.Equals(NombreCuenta + ".save"))
                 {
                     return true;
                 }
-            }
+            }*/
             return resul;
         }
 
@@ -357,10 +357,10 @@ namespace Business_Up.Data
             try
             {
                 List<string> resul = new List<string>();
-                foreach (var item in await TDataBox.CuentasSuspendidas())
+                /*foreach (var item in await TDataBox.CuentasSuspendidas())
                 {
                     resul.Add(item.Name.Replace(".save", ""));
-                }
+                }*/
                 return resul;
             }
             catch (Exception ex)
@@ -372,25 +372,25 @@ namespace Business_Up.Data
         }
 
         /**
-        SuspenderCuenta - M√©todo est√°tico que permite suspender una cuenta espec√≠fica.
+        SuspenderCuenta - MÈtodo est·tico que permite suspender una cuenta especÌfica.
         @param NombreCuenta: nombre de la cuenta a suspender.
-        @return Task: tarea asincr√≥nica que indica cuando la cuenta ha sido suspendida.
-        @throws Exception: excepci√≥n gen√©rica en caso de fallar al suspender la cuenta.
+        @return Task: tarea asincrÛnica que indica cuando la cuenta ha sido suspendida.
+        @throws Exception: excepciÛn genÈrica en caso de fallar al suspender la cuenta.
         */
         public static async Task SuspenderCuenta(string NombreCuenta)
         {
-            await TDataBox.BloquearCuenta(NombreCuenta);
+            //await TDataBox.BloquearCuenta(NombreCuenta);
         }
 
         /**
         Desbloquea una cuenta suspendida y la habilita para su uso.
         @param NombreCuenta Nombre de la cuenta a desbloquear.
-        @return Una tarea que representa la operaci√≥n asincr√≥nica de desbloqueo de cuenta.
+        @return Una tarea que representa la operaciÛn asincrÛnica de desbloqueo de cuenta.
         @throws Exception Si ocurre un error al desbloquear la cuenta.
         */
         public static async Task DesbloquearCuenta(string NombreCuenta)
         {
-            await TDataBox.DesbloquearCuentaSuspendida(NombreCuenta);
+            //await TDataBox.DesbloquearCuentaSuspendida(NombreCuenta);
         }
 
     }

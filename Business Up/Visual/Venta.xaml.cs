@@ -1,4 +1,4 @@
-ï»¿using Business_Up.Contenido;
+using Business_Up.Contenido;
 using Business_Up.Controls;
 using Business_Up.Data;
 using Business_Up.Entidades;
@@ -104,7 +104,7 @@ namespace Business_Up.Visual
             Pagado = !e.Value;
             if (e.Value)
             {
-                DependencyService.Get<IMensaje>().ShowMessage("Se guardarÃ¡ en deudas por cobrar", 0);
+                DependencyService.Get<IMensaje>().ShowMessage("Se guardará en deudas por cobrar", 0);
             }
         }
 
@@ -127,7 +127,7 @@ namespace Business_Up.Visual
         {
             if (Productos.Count > 0 && Cliente != null)
             {
-                var result = await DisplayAlert("GeneraciÃ³n de factura", "Â¿Esta segur@ de facturar con los datos actuales?\nComprobar productos y cliente", "Generar factura", "Cancelar");
+                var result = await DisplayAlert("Generación de factura", "¿Esta segur@ de facturar con los datos actuales?\nComprobar productos y cliente", "Generar factura", "Cancelar");
                 if (result)
                 {
                     var DatosVenta = new Entidades.Venta(TListaVentas.ListaVentas.Count, Cliente, Productos, Pagado, datePicker.Date, TipoPago.Text, new byte[0]);
@@ -165,7 +165,7 @@ namespace Business_Up.Visual
             {
                 Device.BeginInvokeOnMainThread(async () =>
                 {
-                    var result = await DisplayAlert("Perdida de datos", "Â¿Esta segur@ de salir?\nSe perderan todos los datos", "Si, deseo salir", "Cancelar");
+                    var result = await DisplayAlert("Perdida de datos", "¿Esta segur@ de salir?\nSe perderan todos los datos", "Si, deseo salir", "Cancelar");
                     if (result)
                     {
                         _ = Application.Current.MainPage.Navigation.PopModalAsync();
@@ -182,7 +182,7 @@ namespace Business_Up.Visual
         private async void EliminarItem_Clicked(object sender, EventArgs e)
         {
             var editBoxButton = sender as Button;
-            var result = await DisplayAlert("Quitar item de facturacion", "Â¿Estas segur@?", "Si, estoy segur@", "Cancelar");
+            var result = await DisplayAlert("Quitar item de facturacion", "¿Estas segur@?", "Si, estoy segur@", "Cancelar");
             if (editBoxButton != null && result)
             {
                 var boxID = editBoxButton.CommandParameter;
@@ -222,7 +222,7 @@ namespace Business_Up.Visual
                                 }
                                 else
                                 {
-                                    DependencyService.Get<IMensaje>().ShowMessage("La cantidad ingresada sobrepasa el nÃºmero de unidades disponibles", 0);
+                                    DependencyService.Get<IMensaje>().ShowMessage("La cantidad ingresada sobrepasa el número de unidades disponibles", 0);
                                 }
                             }
                             else

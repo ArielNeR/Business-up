@@ -1,4 +1,4 @@
-﻿using Business_Up.Contenido;
+using Business_Up.Contenido;
 using Business_Up.Controls;
 using Business_Up.Data;
 using System;
@@ -73,7 +73,7 @@ namespace Business_Up.Visual
         private async void EliminarItem_Clicked(object sender, EventArgs e)
         {
             var editBoxButton = sender as Button;
-            var result = await DisplayAlert("Quitar item de la lista de clientes", "¿Estas segur@?", "Si, estoy segur@", "Cancelar");
+            var result = await DisplayAlert("Quitar item de la lista de clientes", "�Estas segur@?", "Si, estoy segur@", "Cancelar");
             if (editBoxButton != null && result)
             {
                 var boxID = editBoxButton.CommandParameter as Entidades.Cliente;
