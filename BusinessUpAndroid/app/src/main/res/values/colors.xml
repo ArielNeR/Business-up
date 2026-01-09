@@ -2,9 +2,12 @@
 <resources>
     <!-- Primary Colors - Gray Facebook Style -->
     <color name="primary">#4B5563</color>
+    <color name="colorPrimary">@color/primary</color>
     <color name="primary_dark">#374151</color>
+    <color name="colorPrimaryDark">@color/primary_dark</color>
     <color name="primary_variant">#1F2937</color>
     <color name="primary_light">#6B7280</color>
+    <color name="colorAccent">@color/primary</color>
 
     <!-- Background Colors -->
     <color name="background_main">#F3F4F6</color>
