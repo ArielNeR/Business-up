@@ -1,60 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Primary Colors (matching Xamarin app) -->
-    <color name="primary">#6FCF97</color>
-    <color name="primary_dark">#4CAF50</color>
-    <color name="primary_variant">#388E3C</color>
+    <!-- Primary Colors - Gray Facebook Style -->
+    <color name="primary">#4B5563</color>
+    <color name="primary_dark">#374151</color>
+    <color name="primary_variant">#1F2937</color>
+    <color name="primary_light">#6B7280</color>
 
     <!-- Background Colors -->
-    <color name="background_dark">#1F1D2B</color>
-    <color name="background_card">#252836</color>
-    <color name="background_light">#F5F5F5</color>
+    <color name="background_main">#F3F4F6</color>
+    <color name="background_dark">#374151</color>
+    <color name="background_card">#FFFFFF</color>
+    <color name="background_light">#F9FAFB</color>
+    <color name="background_input">#F3F4F6</color>
+
+    <!-- Header Color -->
+    <color name="header_background">#374151</color>
+    <color name="header_button">#4B5563</color>
 
     <!-- Accent Colors -->
-    <color name="accent_green">#C3F7A2</color>
-    <color name="accent_blue">#4A90D9</color>
-    <color name="accent_purple">#9B59B6</color>
-    <color name="accent_red">#FF1943</color>
-    <color name="accent_orange">#FF9800</color>
+    <color name="accent_green">#10B981</color>
+    <color name="accent_blue">#3B82F6</color>
+    <color name="accent_purple">#8B5CF6</color>
+    <color name="accent_red">#EF4444</color>
+    <color name="accent_orange">#F59E0B</color>
+    <color name="accent_pink">#EC4899</color>
+    <color name="accent_yellow">#FCD34D</color>
 
     <!-- Text Colors -->
-    <color name="text_primary">#FFFFFF</color>
-    <color name="text_secondary">#828282</color>
-    <color name="text_dark">#1F1D2B</color>
+    <color name="text_primary">#111827</color>
+    <color name="text_secondary">#6B7280</color>
+    <color name="text_tertiary">#9CA3AF</color>
+    <color name="text_dark">#111827</color>
     <color name="text_light">#FFFFFF</color>
-    <color name="text_hint">#BDBDBD</color>
+    <color name="text_hint">#9CA3AF</color>
+    <color name="text_on_primary">#FFFFFF</color>
 
     <!-- Status Colors -->
-    <color name="success">#6FCF97</color>
-    <color name="error">#FF5252</color>
-    <color name="warning">#FFB74D</color>
-    <color name="info">#64B5F6</color>
+    <color name="success">#10B981</color>
+    <color name="error">#EF4444</color>
+    <color name="warning">#F59E0B</color>
+    <color name="info">#3B82F6</color>
 
     <!-- Section Colors -->
-    <color name="section_clients">#4A90D9</color>
-    <color name="section_inventory">#9B59B6</color>
-    <color name="section_sales">#6FCF97</color>
-    <color name="section_profile">#1F1D2B</color>
-    <color name="section_contact">#6FCF97</color>
-    <color name="section_logout">#FF5252</color>
+    <color name="section_clients">#3B82F6</color>
+    <color name="section_inventory">#8B5CF6</color>
+    <color name="section_sales">#10B981</color>
+    <color name="section_profile">#6B7280</color>
+    <color name="section_contact">#4B5563</color>
+    <color name="section_logout">#EF4444</color>
 
     <!-- Tab Bar Colors -->
-    <color name="tab_selected">#6FCF97</color>
-    <color name="tab_unselected">#828282</color>
+    <color name="tab_selected">#4B5563</color>
+    <color name="tab_unselected">#9CA3AF</color>
+    <color name="tab_background">#FFFFFF</color>
 
     <!-- Shimmer Colors -->
-    <color name="shimmer_background">#33FFFFFF</color>
-    <color name="shimmer_highlight">#66FFFFFF</color>
+    <color name="shimmer_background">#E5E7EB</color>
+    <color name="shimmer_highlight">#F3F4F6</color>
 
     <!-- Card Colors -->
-    <color name="card_background">#252836</color>
-    <color name="card_border">#383B4D</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="card_border">#E5E7EB</color>
+    <color name="card_elevated">#FFFFFF</color>
 
     <!-- Divider -->
-    <color name="divider">#383B4D</color>
+    <color name="divider">#E5E7EB</color>
+    <color name="divider_light">#F3F4F6</color>
+
+    <!-- Button Colors -->
+    <color name="button_primary">#4B5563</color>
+    <color name="button_primary_pressed">#374151</color>
+    <color name="button_secondary">#E5E7EB</color>
+    <color name="button_secondary_pressed">#D1D5DB</color>
+    <color name="button_danger">#EF4444</color>
+    <color name="button_danger_pressed">#DC2626</color>
+
+    <!-- Icon Colors -->
+    <color name="icon_primary">#374151</color>
+    <color name="icon_secondary">#6B7280</color>
+    <color name="icon_tertiary">#9CA3AF</color>
+    <color name="icon_on_primary">#FFFFFF</color>
+
+    <!-- Social Colors -->
+    <color name="like_color">#4B5563</color>
+    <color name="love_color">#EF4444</color>
+
+    <!-- Status Bar -->
+    <color name="status_bar">#374151</color>
+    <color name="navigation_bar">#FFFFFF</color>
 
     <!-- White and Black -->
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="transparent">#00000000</color>
+
+    <!-- Overlay -->
+    <color name="overlay_dark">#80000000</color>
+    <color name="overlay_light">#80FFFFFF</color>
+
+    <!-- Badge -->
+    <color name="badge_background">#EF4444</color>
+    <color name="badge_text">#FFFFFF</color>
 </resources>

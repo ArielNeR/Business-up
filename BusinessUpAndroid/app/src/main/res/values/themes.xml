@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Base application theme -->
-    <style name="Theme.BusinessUp" parent="Theme.Material3.DayNight.NoActionBar">
+    <!-- Base application theme - Gray Facebook Style -->
+    <style name="Theme.BusinessUp" parent="Theme.Material3.Light.NoActionBar">
         <!-- Primary colors -->
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
@@ -10,27 +10,28 @@
         <item name="colorOnPrimary">@color/white</item>
 
         <!-- Secondary colors -->
-        <item name="colorSecondary">@color/accent_green</item>
+        <item name="colorSecondary">@color/primary</item>
         <item name="colorSecondaryVariant">@color/primary_dark</item>
-        <item name="colorOnSecondary">@color/text_dark</item>
+        <item name="colorOnSecondary">@color/white</item>
 
         <!-- Background -->
-        <item name="android:colorBackground">@color/background_dark</item>
-        <item name="colorSurface">@color/background_card</item>
+        <item name="android:colorBackground">@color/background_main</item>
+        <item name="colorSurface">@color/card_background</item>
         <item name="colorOnSurface">@color/text_primary</item>
-        <item name="colorSurfaceVariant">@color/card_background</item>
+        <item name="colorSurfaceVariant">@color/background_input</item>
         <item name="colorOnSurfaceVariant">@color/text_secondary</item>
 
         <!-- Error -->
         <item name="colorError">@color/error</item>
         <item name="colorOnError">@color/white</item>
 
-        <!-- Status bar -->
-        <item name="android:statusBarColor">@color/background_dark</item>
-        <item name="android:navigationBarColor">@color/background_dark</item>
+        <!-- Status bar - Gray header -->
+        <item name="android:statusBarColor">@color/header_background</item>
+        <item name="android:navigationBarColor">@color/navigation_bar</item>
+        <item name="android:windowLightNavigationBar">true</item>
 
         <!-- Window -->
-        <item name="android:windowBackground">@color/background_dark</item>
+        <item name="android:windowBackground">@color/background_main</item>
 
         <!-- Text colors -->
         <item name="android:textColorPrimary">@color/text_primary</item>
@@ -39,87 +40,163 @@
 
         <!-- Dialog Theme -->
         <item name="materialAlertDialogTheme">@style/Theme.BusinessUp.Dialog</item>
+
+        <!-- Bottom Navigation -->
+        <item name="bottomNavigationStyle">@style/BottomNavStyle</item>
     </style>
 
     <!-- Splash screen theme -->
     <style name="Theme.BusinessUp.Splash" parent="Theme.BusinessUp">
-        <item name="android:windowBackground">@color/background_dark</item>
-        <item name="android:statusBarColor">@color/background_dark</item>
+        <item name="android:windowBackground">@color/header_background</item>
+        <item name="android:statusBarColor">@color/header_background</item>
     </style>
 
-    <!-- Light theme variant for some screens -->
-    <style name="Theme.BusinessUp.Light" parent="Theme.Material3.Light.NoActionBar">
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryDark">@color/primary_dark</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <item name="android:colorBackground">@color/background_light</item>
+    <!-- Bottom Navigation Style -->
+    <style name="BottomNavStyle" parent="Widget.Material3.BottomNavigationView">
+        <item name="backgroundTint">@color/white</item>
+        <item name="itemIconTint">@color/bottom_nav_color_selector</item>
+        <item name="itemTextColor">@color/bottom_nav_color_selector</item>
+        <item name="itemActiveIndicatorStyle">@style/BottomNavIndicator</item>
+    </style>
+
+    <style name="BottomNavIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/background_input</item>
     </style>
 
     <!-- Card style -->
     <style name="CardStyle">
         <item name="cardBackgroundColor">@color/card_background</item>
-        <item name="cardCornerRadius">16dp</item>
-        <item name="cardElevation">4dp</item>
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeWidth">0dp</item>
+    </style>
+
+    <style name="CardStyleElevated">
+        <item name="cardBackgroundColor">@color/card_background</item>
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardElevation">2dp</item>
     </style>
 
     <!-- Button styles -->
     <style name="PrimaryButton" parent="Widget.Material3.Button">
-        <item name="backgroundTint">@color/primary</item>
+        <item name="backgroundTint">@color/button_primary</item>
         <item name="android:textColor">@color/white</item>
-        <item name="cornerRadius">12dp</item>
+        <item name="cornerRadius">24dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
     </style>
 
-    <style name="SecondaryButton" parent="Widget.Material3.Button.OutlinedButton">
-        <item name="strokeColor">@color/primary</item>
-        <item name="android:textColor">@color/primary</item>
-        <item name="cornerRadius">12dp</item>
+    <style name="SecondaryButton" parent="Widget.Material3.Button.TonalButton">
+        <item name="backgroundTint">@color/button_secondary</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="cornerRadius">24dp</item>
+    </style>
+
+    <style name="OutlinedButton" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="strokeColor">@color/divider</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="cornerRadius">24dp</item>
     </style>
 
     <style name="DangerButton" parent="Widget.Material3.Button">
-        <item name="backgroundTint">@color/error</item>
+        <item name="backgroundTint">@color/button_danger</item>
         <item name="android:textColor">@color/white</item>
-        <item name="cornerRadius">12dp</item>
+        <item name="cornerRadius">24dp</item>
+    </style>
+
+    <style name="IconButton" parent="Widget.Material3.Button.IconButton">
+        <item name="backgroundTint">@color/header_button</item>
+        <item name="iconTint">@color/white</item>
     </style>
 
     <!-- EditText style -->
-    <style name="EditTextStyle" parent="Widget.Material3.TextInputLayout.OutlinedBox">
-        <item name="boxStrokeColor">@color/primary</item>
-        <item name="hintTextColor">@color/primary</item>
+    <style name="EditTextStyle" parent="Widget.Material3.TextInputLayout.FilledBox">
+        <item name="boxBackgroundColor">@color/background_input</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="hintTextColor">@color/text_secondary</item>
         <item name="android:textColor">@color/text_primary</item>
-        <item name="boxCornerRadiusTopStart">12dp</item>
-        <item name="boxCornerRadiusTopEnd">12dp</item>
-        <item name="boxCornerRadiusBottomStart">12dp</item>
-        <item name="boxCornerRadiusBottomEnd">12dp</item>
+        <item name="boxCornerRadiusTopStart">24dp</item>
+        <item name="boxCornerRadiusTopEnd">24dp</item>
+        <item name="boxCornerRadiusBottomStart">24dp</item>
+        <item name="boxCornerRadiusBottomEnd">24dp</item>
+    </style>
+
+    <style name="SearchInputStyle" parent="Widget.Material3.TextInputLayout.FilledBox">
+        <item name="boxBackgroundColor">@color/background_input</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="hintTextColor">@color/text_hint</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="boxCornerRadiusTopStart">24dp</item>
+        <item name="boxCornerRadiusTopEnd">24dp</item>
+        <item name="boxCornerRadiusBottomStart">24dp</item>
+        <item name="boxCornerRadiusBottomEnd">24dp</item>
     </style>
 
     <!-- Section header style -->
     <style name="SectionHeader">
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/text_primary</item>
         <item name="android:paddingStart">16dp</item>
-        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingTop">12dp</item>
         <item name="android:paddingBottom">8dp</item>
     </style>
 
     <!-- List item title -->
     <style name="ListItemTitle">
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">15sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/text_primary</item>
     </style>
 
     <!-- List item subtitle -->
     <style name="ListItemSubtitle">
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">13sp</item>
         <item name="android:textColor">@color/text_secondary</item>
     </style>
 
     <!-- Price text -->
     <style name="PriceText">
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/success</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Header Title -->
+    <style name="HeaderTitle">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- Facebook Style Post Actions -->
+    <style name="PostActionButton">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+    </style>
+
+    <!-- Story Style -->
+    <style name="StoryRing">
+        <item name="strokeWidth">3dp</item>
+        <item name="strokeColor">@color/primary</item>
+    </style>
+
+    <!-- Badge Style -->
+    <style name="BadgeStyle">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/badge_text</item>
+        <item name="backgroundColor">@color/badge_background</item>
+    </style>
+
+    <!-- Chip Style -->
+    <style name="ChipStyle" parent="Widget.Material3.Chip.Filter">
+        <item name="chipBackgroundColor">@color/background_input</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="chipCornerRadius">20dp</item>
     </style>
 
     <!-- Dialog Theme -->
@@ -131,5 +208,35 @@
         <item name="colorOnSurface">@color/text_primary</item>
         <item name="colorOnSurfaceVariant">@color/text_secondary</item>
         <item name="colorPrimary">@color/primary</item>
+        <item name="shapeAppearanceOverlay">@style/DialogShapeAppearance</item>
+    </style>
+
+    <style name="DialogShapeAppearance" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <!-- Bottom Sheet Style -->
+    <style name="BottomSheetStyle" parent="Widget.Material3.BottomSheet">
+        <item name="backgroundTint">@color/card_background</item>
+        <item name="shapeAppearance">@style/BottomSheetShapeAppearance</item>
+    </style>
+
+    <style name="BottomSheetShapeAppearance" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">24dp</item>
+        <item name="cornerSizeTopRight">24dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+    <!-- Tab Layout Style -->
+    <style name="TabLayoutStyle" parent="Widget.Material3.TabLayout">
+        <item name="tabBackground">@color/white</item>
+        <item name="tabIndicatorColor">@color/primary</item>
+        <item name="tabSelectedTextColor">@color/primary</item>
+        <item name="tabTextColor">@color/text_secondary</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabIndicatorFullWidth">true</item>
     </style>
 </resources>
