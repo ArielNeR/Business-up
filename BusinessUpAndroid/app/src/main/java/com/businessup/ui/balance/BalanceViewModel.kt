@@ -63,7 +63,9 @@ class BalanceViewModel(application: Application) : AndroidViewModel(application)
 
     fun setDate(dateMillis: Long) {
         _selectedDate.value = dateMillis
-        loadDailyData(dateMillis)
+        viewModelScope.launch {
+            loadDailyData(dateMillis)
+        }
     }
 
     fun loadData() {
