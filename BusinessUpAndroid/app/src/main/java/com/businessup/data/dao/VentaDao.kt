@@ -40,8 +40,8 @@ interface VentaDao {
     @Query("SELECT * FROM ventas WHERE pagado = 0 ORDER BY fecha DESC")
     suspend fun getVentasNoPagadas(): List<Venta>
 
-    // Top 5 ventas no pagadas por total (para Home)
-    @Query("SELECT * FROM ventas WHERE pagado = 0 ORDER BY (SELECT SUM(precio * cantidad) FROM ventas) DESC LIMIT 5")
+    // Top 5 ventas no pagadas más recientes (para Home)
+    @Query("SELECT * FROM ventas WHERE pagado = 0 ORDER BY fecha DESC LIMIT 5")
     fun getTopVentasNoPagadas(): LiveData<List<Venta>>
 
     // Ventas pagadas
