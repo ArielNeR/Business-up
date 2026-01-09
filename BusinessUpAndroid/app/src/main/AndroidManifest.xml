@@ -94,6 +94,16 @@
             android:name=".ui.clients.SelectClientActivity"
             android:exported="false" />
 
+        <!-- Clients List Activity -->
+        <activity
+            android:name=".ui.clients.ClientsActivity"
+            android:exported="false" />
+
+        <!-- Inventory Activity -->
+        <activity
+            android:name=".ui.inventory.InventoryActivity"
+            android:exported="false" />
+
         <!-- Select Inventory Item Activity -->
         <activity
             android:name=".ui.inventory.SelectInventoryActivity"

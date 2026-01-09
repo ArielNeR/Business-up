@@ -44,6 +44,9 @@
     <string name="nav_profile">Perfil</string>
 
     <!-- Home -->
+    <string name="home_subtitle">Gestiona tu negocio fácilmente</string>
+    <string name="home_new_sale">Nueva Venta</string>
+    <string name="home_add_client">Nuevo Cliente</string>
     <string name="home_clients_title">Clientes</string>
     <string name="home_inventory_title">Productos y Servicios</string>
     <string name="home_pending_title">Cuentas por Cobrar</string>

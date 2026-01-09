@@ -6,8 +6,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import androidx.fragment.app.viewModels
 import com.businessup.R
 import com.businessup.databinding.FragmentProfileBinding
@@ -89,7 +89,7 @@ class ProfileFragment : Fragment() {
     }
 
     private fun showLogoutConfirmation() {
-        AlertDialog.Builder(requireContext())
+        MaterialAlertDialogBuilder(requireContext(), R.style.Theme_BusinessUp_Dialog)
             .setTitle(R.string.profile_logout)
             .setMessage(R.string.profile_logout_confirm)
             .setPositiveButton(R.string.btn_accept) { _, _ ->

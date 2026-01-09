@@ -12,6 +12,7 @@ import com.businessup.data.model.Cliente
 import com.businessup.data.model.InventarioItem
 import com.businessup.data.model.Venta
 import com.businessup.databinding.FragmentHomeBinding
+import com.businessup.ui.clients.AddClientActivity
 import com.businessup.ui.pdf.PdfViewerActivity
 import com.businessup.ui.sales.SaleActivity
 import com.businessup.adapters.ClienteHorizontalAdapter
@@ -99,8 +100,18 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupClickListeners() {
+        // FAB for new sale
         binding.fabNewSale.setOnClickListener {
             startActivity(Intent(requireContext(), SaleActivity::class.java))
+        }
+
+        // Quick action cards
+        binding.cardNewSale.setOnClickListener {
+            startActivity(Intent(requireContext(), SaleActivity::class.java))
+        }
+
+        binding.cardAddClient.setOnClickListener {
+            startActivity(Intent(requireContext(), AddClientActivity::class.java))
         }
     }
 
