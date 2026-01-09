@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Colors (matching Xamarin app) -->
+    <color name="primary">#6FCF97</color>
+    <color name="primary_dark">#4CAF50</color>
+    <color name="primary_variant">#388E3C</color>
+
+    <!-- Background Colors -->
+    <color name="background_dark">#1F1D2B</color>
+    <color name="background_card">#252836</color>
+    <color name="background_light">#F5F5F5</color>
+
+    <!-- Accent Colors -->
+    <color name="accent_green">#C3F7A2</color>
+    <color name="accent_blue">#4A90D9</color>
+    <color name="accent_purple">#9B59B6</color>
+    <color name="accent_red">#FF1943</color>
+    <color name="accent_orange">#FF9800</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#828282</color>
+    <color name="text_dark">#1F1D2B</color>
+    <color name="text_light">#FFFFFF</color>
+    <color name="text_hint">#BDBDBD</color>
+
+    <!-- Status Colors -->
+    <color name="success">#6FCF97</color>
+    <color name="error">#FF5252</color>
+    <color name="warning">#FFB74D</color>
+    <color name="info">#64B5F6</color>
+
+    <!-- Section Colors -->
+    <color name="section_clients">#4A90D9</color>
+    <color name="section_inventory">#9B59B6</color>
+    <color name="section_sales">#6FCF97</color>
+    <color name="section_profile">#1F1D2B</color>
+    <color name="section_contact">#6FCF97</color>
+    <color name="section_logout">#FF5252</color>
+
+    <!-- Tab Bar Colors -->
+    <color name="tab_selected">#6FCF97</color>
+    <color name="tab_unselected">#828282</color>
+
+    <!-- Shimmer Colors -->
+    <color name="shimmer_background">#33FFFFFF</color>
+    <color name="shimmer_highlight">#66FFFFFF</color>
+
+    <!-- Card Colors -->
+    <color name="card_background">#252836</color>
+    <color name="card_border">#383B4D</color>
+
+    <!-- Divider -->
+    <color name="divider">#383B4D</color>
+
+    <!-- White and Black -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+</resources>
